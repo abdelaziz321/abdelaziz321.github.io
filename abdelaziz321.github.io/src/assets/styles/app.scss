@@ -1,0 +1,97 @@
+@import './bootstrap.min';
+@import './spacers';
+@import './bootstrap-theme';
+@import './general';
+
+// nav bar
+.nav-item {
+  padding: 0 1em;
+}
+
+// contacts
+.contacts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  svg {
+    width: 20px;
+    fill: $color-b;
+    margin: 0 10px;
+
+    &:hover {
+      fill: $color-2;
+    }
+  }
+  
+}
+
+// tools
+.tools {
+  .discription {
+    font-size: 1.05em;
+  }
+
+  .tools-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .tool {
+      padding: 1.5em;
+  
+      .title {
+        display: block;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      .level {
+        position: relative;
+        bottom: 2px;
+      }
+  
+      svg {
+        width: 80px;
+        fill: $color-b;
+        margin: 3px 10px;
+      }
+  
+      &:hover {
+        background-color: $color-e;
+  
+        svg {
+          fill: $color-2;
+        }
+      }
+    }
+  }
+
+  .level {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+    vertical-align: middle;
+    
+    &.high { background-color: #14c514; }
+    &.mid { background-color: #1478d4; }
+    &.low { background-color: #da2c15; }
+  }
+}
+
+// notes 
+ul.notes {
+  padding-left: 1em;
+  list-style-type: '⇒';
+
+  li {
+    padding-left: 0.9em;
+  }
+}
+
+// footer
+.site-footer {
+  font-size: 0.9em;
+  background-color: $colorfa;
+}

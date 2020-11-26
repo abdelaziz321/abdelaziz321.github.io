@@ -1,32 +1,21 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <!-- NAVBAR -->
+    <div class="nav text-center pt-50 pb-50">
+      <router-link class="nav-item" to="/">Home</router-link>
+      <router-link class="nav-item" to="/blog">Blog</router-link>
     </div>
-    <router-view/>
+
+    <!-- CONTENT -->
+    <main>
+      <router-view/>
+    </main>
+
+    <!-- FOOTER -->
+    <div class="site-footer text-center pt-5 pb-5"> designed with ♥ by Abdelaziz Sliem © {{ (new Date).getFullYear() }}</div>
   </div>
 </template>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
+@import './assets/styles/app.scss';
 </style>
