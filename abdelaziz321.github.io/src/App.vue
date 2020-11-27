@@ -7,7 +7,7 @@
     </div>
 
     <!-- CONTENT -->
-    <main>
+    <main class="container">
       <router-view/>
     </main>
 

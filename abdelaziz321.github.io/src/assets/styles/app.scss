@@ -95,3 +95,62 @@ ul.notes {
   font-size: 0.9em;
   background-color: $colorfa;
 }
+
+
+// single-post
+.post {
+  h1 {
+    font-size: 1.9em;
+  }
+
+  pre[class*="language-"]>code {
+    background-size: 15px 50px !important;
+    border-left-width: 5px;
+    box-shadow: 0 0 0 !important;
+  }
+
+  pre {
+    border-radius: 0;
+  }
+
+  p {
+    margin-bottom: 0.8em;
+  }
+
+  code:not([class*="language-"]) {
+    color: $color-0;
+    border: 1px solid $color-d;
+    background-color: #f1fbff;
+  }
+
+  ul {
+    list-style: '☛';
+    padding-left: 1em;
+    margin-bottom: 1.3em;
+
+    li {
+      padding-left: 1em;
+    }
+  }
+
+  a {
+    color: #069ce2;
+    text-decoration: underline;
+  }
+
+  br {
+    content: "";
+    margin: 2.5em;
+    display: block;
+  }
+
+  blockquote {
+    background-color: #fff;
+    margin: 0.9em 0;
+    border-color: #43bef7;
+  }
+
+  img {
+    max-width: 100%;
+  }
+}

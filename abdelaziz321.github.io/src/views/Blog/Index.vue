@@ -1,5 +1,5 @@
 <template>
-  <div class="blog container mb-50">
+  <div class="blog mb-50">
     <section :key="index" v-for="(post, index) in posts" class="single-post mb-40 pb-20 pt-20">
       <p class="text-right">{{ post.date }}</p>
       <h1 class="mb-15">⛵ {{ post.title }}</h1>
@@ -15,21 +15,23 @@
 <script>
 export default {
   name: 'blog-index',
-  
+
   data: function () {
     return {
       posts: []
     };
   },
 
+
   created() {
     this.fetchPosts();
   },
 
+
   methods: {
     fetchPosts() {
       const vue = this;
-      const postsDirectoryUrl = 'https://api.github.com/repos/abdelaziz321/abdelaziz321.github.io/contents/public/_posts/?ref=master';
+      const postsDirectoryUrl = 'https://api.github.com/repos/abdelaziz321/abdelaziz321.github.io/contents/public/_posts?ref=master';
 
       var xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function() {
@@ -45,6 +47,8 @@ export default {
       const postsDirectories = JSON.parse(response);
 
       for (const postFile of postsDirectories) {
+        if (postFile.type != 'file') continue;
+
         posts.push({
           title: this.getPostTitle(postFile.name),
           date: this.getPostDate(postFile.name),

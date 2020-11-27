@@ -1,5 +1,5 @@
 <template>
-  <div class="home container mb-50">
+  <div class="home mb-50">
     <about class="mb-50" />
     <tools class="mb-50" />
     <notes class="mb-50" />
