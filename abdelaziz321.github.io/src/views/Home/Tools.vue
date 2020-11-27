@@ -1,5 +1,5 @@
 <template>
-  <section class="tools mb-40">
+  <section class="tools mb-40 paper">
     <!-- TOOLS -->
     <div class="row pt-40 pb-20 text-center">
       <div class="col-12">

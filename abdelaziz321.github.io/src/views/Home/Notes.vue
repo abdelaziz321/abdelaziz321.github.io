@@ -1,5 +1,5 @@
 <template>
-  <section class="mb-40">
+  <section class="mb-40 paper">
     <ul class="pt-20 pb-20 notes">
       <li>stuck at starting to learn web development? reach me via my facebook/twitter account.</li>
       <li>wanna hire me in a freelance job? contact me via my email.</li>
