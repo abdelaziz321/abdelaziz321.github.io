@@ -44,6 +44,8 @@ export default {
 
         this.post.title = this.getPostTitle(postFileName);
         this.post.date = this.getPostDate(postFileName);
+        
+        document.title = `Abdelaziz Sliem | ${this.post.title}`;
 
         this.fetchPost(postFileName);
       },

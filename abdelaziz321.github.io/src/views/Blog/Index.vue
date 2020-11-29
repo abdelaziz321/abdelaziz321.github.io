@@ -25,6 +25,7 @@ export default {
 
   created() {
     this.fetchPosts();
+    document.title = 'Abdelaziz Sliem | Blog';
   },
 
 

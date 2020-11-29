@@ -123,6 +123,19 @@ ul.notes {
     background-color: #f1fbff;
   }
 
+  ol {
+    padding-left: 1em;
+    margin-bottom: 1.3em;
+
+    li {
+      padding-left: 0.5em;
+    }
+
+    ul {
+       margin-bottom: 0.8em;
+    }
+  }
+
   ul {
     list-style: '☛';
     padding-left: 1em;
