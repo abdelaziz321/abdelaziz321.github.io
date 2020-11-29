@@ -1,16 +1,21 @@
 <template>
-  <section class="post mb-40 pb-20 pt-20 paper">
-    <p class="text-right mb-35">{{ post.date }}</p>
-    <h1 class="mb-30">⛵ {{ post.title }}</h1>
+  <div>
+    <section class="post mb-40 pb-20 pt-20 paper">
+      <p class="text-right mb-35">{{ post.date }}</p>
+      <h1 class="mb-30">⛵ {{ post.title }}</h1>
 
-    <markdown :source="post.content" @rendered="highlightCode()" />
-  </section>
+      <markdown :source="post.content" @rendered="highlightCode()" />
+    </section>
+
+    <section class="mb-40" ref="utteranc-comments-element"></section>
+  </div>
 </template>
 
 
 <script>
 import Markdown from 'vue-markdown';
 import Prism from 'prismjs';
+
 import 'prismjs/components/prism-bash';
 import 'prismjs/components/prism-javascript';
 import 'prismjs/components/prism-json';
@@ -31,9 +36,24 @@ export default {
       post: {
         date: null,
         title: null,
-        content: null
+        content: 'loading...'
       }
     };
+  },
+
+
+  mounted() {
+    let utterancScript = document.createElement('script');
+  
+    utterancScript.setAttribute('src', 'https://utteranc.es/client.js');
+    utterancScript.setAttribute('repo', 'abdelaziz321/abdelaziz321.github.io');
+    utterancScript.setAttribute('issue-term', 'pathname');
+    utterancScript.setAttribute('label', 'Comments');
+    utterancScript.setAttribute('theme', 'github-light');
+    utterancScript.setAttribute('crossorigin', 'anonymous');
+    utterancScript.setAttribute('async', true);
+
+    this.$refs['utteranc-comments-element'].appendChild(utterancScript);
   },
 
 
@@ -53,6 +73,7 @@ export default {
       immediate: true,
     }
   },
+
 
   methods: {
     fetchPost(postFileName) {
