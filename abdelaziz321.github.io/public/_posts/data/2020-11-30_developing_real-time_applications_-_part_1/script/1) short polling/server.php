@@ -4,7 +4,7 @@
  * this is a mock to a function which perform a query and do some
  * calculations to get the top seller today
  * 
- * @return array
+ * @return string
  */
 function getTopSellerToday() {
     $sellers = ['Ahmed', 'Yasser', 'Ibrahim', 'Hussain', 'Hassan'];
