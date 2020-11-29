@@ -18,7 +18,7 @@ When the client is asking the server for data, this is called **client pull**.
 
 The reverse, when the transmission of data is initiated by the server, this is called **server push**.
 
-![](http://127.0.0.1:8080/_posts/data/2020-11-30_developing_real-time_applications_-_part_1/images/1.png)
+![](https://raw.githubusercontent.com/abdelaziz321/abdelaziz321.github.io/master/_posts/data/2020-11-30_developing_real-time_applications_-_part_1/images/1.png)
 
 To implement these 2 approaches we have some techniques:
 
@@ -180,7 +180,7 @@ Notice how we used the `setTimeout` function in the success part of the `fetchTo
 
 and here is how the request keeps going to `server.php` every 3 seconds. now the data seem to be real-time.
 
-![](http://127.0.0.1:8080/_posts/data/2020-11-30_developing_real-time_applications_-_part_1/images/2.png)
+![](https://raw.githubusercontent.com/abdelaziz321/abdelaziz321.github.io/master/_posts/data/2020-11-30_developing_real-time_applications_-_part_1/images/2.png)
 
 <br />
 
@@ -259,13 +259,13 @@ Notice how we call the `fetchTopSeller()` immediately after getting the response
 
 This is the chrome's network tap, and you can see how the last request is pending. it's obvious that at this moment the client's `top_seller` value equals to the server value which is `Hussain`. and now the server is holding the connection by using `sleep(1)` method until its value differs from the client value.
 
-![](http://127.0.0.1:8080/_posts/data/2020-11-30_developing_real-time_applications_-_part_1/images/3.png)
+![](https://raw.githubusercontent.com/abdelaziz321/abdelaziz321.github.io/master/_posts/data/2020-11-30_developing_real-time_applications_-_part_1/images/3.png)
 
 I really liked this technique the first time I implemented it.
 
 Before moving forward to `SSE`, this diagram will help us to remember the difference between short and long polling.
 
-![](http://127.0.0.1:8080/_posts/data/2020-11-30_developing_real-time_applications_-_part_1/images/4.png)
+![](https://raw.githubusercontent.com/abdelaziz321/abdelaziz321.github.io/master/_posts/data/2020-11-30_developing_real-time_applications_-_part_1/images/4.png)
 
 <br />
 
@@ -277,7 +277,7 @@ This technique is very interesting although it's not popular. we still using the
 
 Firstly the client sends a single request to the server. after that, the server can keep pushing data (sending events) to the client. on the other hand, the client needs to handle the received data (listening to server events).
 
-![](http://127.0.0.1:8080/_posts/data/2020-11-30_developing_real-time_applications_-_part_1/images/5.png)
+![](https://raw.githubusercontent.com/abdelaziz321/abdelaziz321.github.io/master/_posts/data/2020-11-30_developing_real-time_applications_-_part_1/images/5.png)
 
 Note that the client can’t send messages to the server, only receiving data. 
 
@@ -355,7 +355,7 @@ Note that, If the connection drops, the `EventSource` fires an error event and a
 
 Here is how `SSE` looks like in Chrome's network tab. notice inside the `EventStream` tab we can see the *Type* which is the event that we are listening to.
 
-![](http://127.0.0.1:8080/_posts/data/2020-11-30_developing_real-time_applications_-_part_1/images/6.png)
+![](https://raw.githubusercontent.com/abdelaziz321/abdelaziz321.github.io/master/_posts/data/2020-11-30_developing_real-time_applications_-_part_1/images/6.png)
 
 Before moving forward to web-socket you need to know that `SSE` is not supported by **IE**. and also the maximum number of the opened connections for a single domain in the browser - for all tabs - is 6.
 
@@ -402,7 +402,7 @@ WebSocket Protocol consists of 2 parts:
 
 This diagram will help us to remember the difference between the traditional HTTP and Websocket Protocol:
 
-![](http://127.0.0.1:8080/_posts/data/2020-11-30_developing_real-time_applications_-_part_1/images/7.png)
+![](https://raw.githubusercontent.com/abdelaziz321/abdelaziz321.github.io/master/_posts/data/2020-11-30_developing_real-time_applications_-_part_1/images/7.png)
 
 This is enough for now and in the future, we will dive deeper into this technique and write some code.
 
