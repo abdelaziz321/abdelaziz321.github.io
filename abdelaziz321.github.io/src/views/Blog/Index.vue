@@ -32,7 +32,7 @@ export default {
   methods: {
     fetchPosts() {
       const vue = this;
-      const postsDirectoryUrl = 'https://api.github.com/repos/abdelaziz321/abdelaziz321.github.io/contents/public/_posts?ref=master';
+      const postsDirectoryUrl = 'https://api.github.com/repos/abdelaziz321/abdelaziz321.github.io/contents/_posts?ref=master';
 
       var xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function() {
