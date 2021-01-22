@@ -1,0 +1,180 @@
+@import './bootstrap.min';
+@import './spacers';
+@import './bootstrap-theme';
+@import './general';
+
+// nav bar
+.nav-item {
+  padding: 0 1em;
+}
+
+// contacts
+.contacts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  svg {
+    width: 20px;
+    fill: $color-b;
+    margin: 0 10px;
+
+    &:hover {
+      fill: $color-2;
+    }
+  }
+  
+}
+
+// tools
+.tools {
+  .discription {
+    font-size: 1.05em;
+  }
+
+  .tools-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .tool {
+      padding: 1.5em;
+  
+      .title {
+        display: block;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      .level {
+        position: relative;
+        bottom: 2px;
+      }
+  
+      svg {
+        width: 80px;
+        fill: $color-b;
+        margin: 3px 10px;
+      }
+  
+      &:hover {
+        background-color: $color-e;
+  
+        svg {
+          fill: $color-2;
+        }
+      }
+    }
+  }
+
+  .level {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+    vertical-align: middle;
+    
+    &.high { background-color: #14c514; }
+    &.mid { background-color: #1478d4; }
+    &.low { background-color: #da2c15; }
+  }
+}
+
+// notes 
+ul.notes {
+  padding-left: 1em;
+  list-style-type: '⇒';
+
+  li {
+    padding-left: 0.9em;
+  }
+}
+
+// footer
+.site-footer {
+  font-size: 0.9em;
+  background-color: $colorfa;
+}
+
+
+// single-post
+.post {
+  h1 {
+    font-size: 1.9em;
+  }
+
+  pre[class*="language-"]>code {
+    background-size: 15px 50px !important;
+    border-left-width: 5px;
+    box-shadow: 0 0 0 !important;
+  }
+
+  pre {
+    border-radius: 0;
+  }
+
+  code[class*=language-],
+  pre[class*=language-] {
+    line-height: 25px;
+  }
+
+  p {
+    margin-bottom: 0.8em;
+  }
+
+  code:not([class*="language-"]) {
+    color: $color-0;
+    border: 1px solid $color-d;
+    background-color: #f1fbff;
+  }
+
+  ol {
+    padding-left: 1em;
+    margin-bottom: 1.3em;
+
+    li {
+      padding-left: 0.5em;
+    }
+
+    ul {
+       margin-bottom: 0.8em;
+    }
+  }
+
+  ul {
+    list-style: '☛';
+    padding-left: 1em;
+    margin-bottom: 1.3em;
+
+    li {
+      padding-left: 1em;
+    }
+  }
+
+  a {
+    color: #069ce2;
+    text-decoration: underline;
+  }
+
+  br {
+    content: "";
+    margin: 2.5em;
+    display: block;
+  }
+
+  blockquote {
+    background-color: #fff;
+    margin: 0.9em 0;
+    border-color: #43bef7;
+  }
+
+  img {
+    max-width: 100%;
+  }
+}
+
+
+// comments section
+.utterances {
+  max-width: initial;
+}
