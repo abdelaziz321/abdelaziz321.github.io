@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- VUE will show us the fetched top seller here -->
+  <div id="app">
+    <h2>Top Seller</h2>
+    {{ topSeller }}
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+
+
+      data: {
+        topSeller: null
+      },
+
+
+      // here we start to fetch the top seller for the first time
+      mounted() {
+        this.fetchTopSeller();
+      },
+
+
+      methods: {
+        fetchTopSeller() {
+          const vue = this;
+          const xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function () {
+            if (this.readyState != 4) return;
+
+            // --- success
+            if (this.status == 200) {
+              vue.showTopSeller(xhttp.responseText);
+              
+              // here we will fetch the top seller again after 3 sec
+              setTimeout(function () { vue.fetchTopSeller(); }, 3000);
+            }
+            // --- something went wrong
+            else {
+              window.alert('error');
+            }
+          }
+
+          xhttp.open('GET', 'http://127.0.0.1:8000/server.php', true);
+          xhttp.send();
+        },
+
+        showTopSeller(responseText) {
+          const response = JSON.parse(responseText);
+          this.topSeller = response.top_seller;
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

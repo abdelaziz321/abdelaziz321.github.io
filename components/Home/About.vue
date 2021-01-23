@@ -11,7 +11,7 @@
           <p>Also, I'm studying CS/Statistics At Faculty of Sciences, Alexandria University.</p>
           <a
             target="_blank"
-            :href="`${baseUrl}/AbdelazizSliem.pdf`"
+            :href="`AbdelazizSliem.pdf`"
             class="btn btn-dark mt-15"
           >Download My CV</a>
         </div>
@@ -57,8 +57,6 @@ export default {
 
   data: function () {
     return {
-      baseUrl: process.env.VUE_APP_BASE_URL,
-
       contacts: [
         { icon: gmail,         link: 'mailto:abdelazizmahmoud321@gmail.com?subject=personal site | guest' },
         { icon: github,        link: 'https://github.com/abdelaziz321' },

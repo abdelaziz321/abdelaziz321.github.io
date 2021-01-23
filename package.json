@@ -11,9 +11,9 @@
   "dependencies": {
     "@nuxt/content": "^1.11.1",
     "core-js": "^3.8.2",
+    "markdown-it-highlightjs": "^3.4.0",
     "nuxt": "^2.14.12",
-    "prismjs": "^1.23.0",
-    "vue-markdown": "^2.2.4"
+    "prism-themes": "^1.5.0"
   },
   "devDependencies": {
     "@nuxtjs/svg": "^0.1.12",

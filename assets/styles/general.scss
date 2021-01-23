@@ -13,10 +13,11 @@ $color-f: #FFFFFF;
 body {
   color: $color-6;
   font-size: 1.7rem;
-  background-color: $color-e;
   font-family: 'Roboto', sans-serif;
   line-height: 1.9;
   overflow-x: hidden;
+  background-color: $colorfa;
+  background-image: url('~assets/images/bg.png');
 }
 
 main {
@@ -58,34 +59,14 @@ p, ul {
 section {
   position: relative;
   padding: 1em 2.5em;
-  background-color: $colorfa;
+  background-color: $color-f;
   border: 1px solid $color-d;
-
-  &.paper::before,
-  &.paper::after {
-    content: "";
-    display: block;
-    position: absolute;
-    transform: rotate(135deg);
-    border: 35px solid transparent;
-  }
-  
-  &.paper::before {
-    top: -48px;
-    left: -48px;
-    border-top: 35px solid $color-e;
-    box-shadow: 0px -7px 6px -9px $color-0;
-  }
-  
-  &.paper::after {
-    bottom:-48px;
-    right: -48px;
-    border-bottom: 35px solid $color-e;
-    box-shadow: 0px 7px 6px -9px $color-0;
-    
-  }
 }
 
 .summary {
   border-top: 1px solid $color-e;
+}
+
+.text-gray {
+  color: $color-a;
 }
