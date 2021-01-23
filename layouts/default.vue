@@ -20,5 +20,17 @@
 <script>
 export default {
   name: 'app',
+
+  created() {
+    // this is workaround for gh-pages after handling the 404 page
+    if (!process.client) return;
+
+    let pathname = window.sessionStorage.pathname;
+    delete window.sessionStorage.pathname;
+
+    if (pathname && pathname != location.pathname) {
+      this.$router.push(pathname);
+    }
+  }
 }
 </script>
