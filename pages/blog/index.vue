@@ -7,7 +7,7 @@
       <p>{{ article.description }}</p>
 
       <p class="mb-5 mt-10">
-        <router-link class="text-primary"  :to="`blog/${article.slug}`">>> Start Reading</router-link>
+        <router-link class="text-primary" :to="`/blog/${article.slug}`">>> Start Reading</router-link>
       </p>
     </section>
   </div>
