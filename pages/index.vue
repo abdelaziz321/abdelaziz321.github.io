@@ -16,11 +16,6 @@ export default {
   name: 'home-index',
   components: {
     About, Tools, Notes
-  },
-
-
-  created() {
-    // document.title = 'Abdelaziz Sliem';
   }
 }
 </script>

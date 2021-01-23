@@ -25,8 +25,8 @@ export default {
     // this is workaround for gh-pages after handling the 404 page
     if (!process.client) return;
 
-    let pathname = window.sessionStorage.pathname;
-    delete window.sessionStorage.pathname;
+    let pathname = window.sessionStorage.redirect;
+    delete window.sessionStorage.redirect;
 
     if (pathname && pathname != location.pathname) {
       this.$router.push(pathname);
