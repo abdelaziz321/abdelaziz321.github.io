@@ -1,5 +1,5 @@
 <template>
-  <section class="tools mb-40 paper">
+  <section class="tools mb-40">
     <!-- TOOLS -->
     <div class="row pt-40 pb-20 text-center">
       <div class="col-12">
@@ -17,6 +17,8 @@
       </div>
     </div>
 
+    <hr class="divider-line hide-mobile" />
+
     <!-- SUMMARY -->
     <div class="summary text-left pb-20 pt-25">
       <p>
@@ -25,7 +27,7 @@
       </p>
       <p>
         <span class="level mid mr-15"></span>
-        already used it, but don't have a deep understanding
+        don't have a deep understanding
       </p>
       <p>
         <span class="level low mr-15"></span>
@@ -111,3 +113,86 @@ export default {
   }
 };
 </script>
+
+
+<style lang="scss">
+.tools {
+  .discription {
+    font-size: 1.05em;
+  }
+
+  .tools-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .tool {
+      padding: 1.5em;
+
+      @media(max-width:767px) {
+        padding: 1em;
+      }
+  
+      .title {
+        display: block;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      .level {
+        position: relative;
+        bottom: 2px;
+      }
+  
+      svg {
+        width: 80px;
+        fill: #BBBBBB;
+        margin: 3px 10px;
+
+        @media(max-width:767px) {
+          width: 50px;
+          margin: 2px 7px;
+        }
+      }
+  
+      &:hover {
+        background-color: #EEEEEE;
+  
+        svg {
+          fill: #222222;
+        }
+      }
+    }
+  }
+
+  .level {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+    vertical-align: middle;
+    
+    &.high { background-color: #14c514; }
+    &.mid { background-color: #1478d4; }
+    &.low { background-color: #da2c15; }
+  }
+}
+
+body.dark-mode .tools {
+  .tools-list {
+    .tool {
+      svg {
+        fill: #888888;
+      }
+  
+      &:hover {
+        background-color: #111518;
+  
+        svg {
+          fill: #DDDDDD;
+        }
+      }
+    }
+  }
+}
+</style>

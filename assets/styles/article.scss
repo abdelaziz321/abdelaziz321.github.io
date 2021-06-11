@@ -1,0 +1,143 @@
+.article {
+  h2 {
+    position: relative;
+    color: $primary;
+    font-size: 2.5rem;
+    padding-left: 1.5rem;
+    padding-top: 0.5rem;
+    border-left: 1rem solid $primary;
+    border-bottom: 1rem solid transparent;
+
+    body.dark-mode & {
+      color: $primaryDark;
+      border-left: 1rem solid $primaryDark;
+    }
+
+    @media(max-width:767px) {
+      font-size: 2rem;
+    }
+  }
+
+  h3 {
+    position: relative;
+    color: $primary;
+    font-size: 2rem;
+    padding-top: 0.5rem;
+
+    body.dark-mode & {
+      color: $primaryDark;
+    }
+
+    @media(max-width:767px) {
+      font-size: 1.8rem;
+    }
+  }
+
+  .nuxt-content-highlight {
+    pre[class*="language-"] {
+      margin-top: 0;
+      background-color: #1e2933;
+
+      body.dark-mode & {
+        border-color: $borderColorDark;
+      }
+
+      code {
+        white-space: pre;
+      }
+    }
+
+    .filename {
+      display: inline-block;
+      background-color: #1e2933;
+      padding: 0 1rem;
+      color: #eee;
+      border-radius: 0 1rem 0 0;
+      position: relative;
+      bottom: -2px;
+      z-index: 3;
+      border-left: 1px solid $borderColor;
+
+      body.dark-mode & {
+        border-left: 1px solid $borderColorDark;
+      }
+    }
+  }
+
+  p {
+    margin-bottom: 0.8em;
+  }
+
+  p > code,
+  p > strong > code,
+  li > code,
+  h1 > code,
+  h2 > code,
+  h3 > code {
+    color: #000000;
+    border: 1px solid $borderColor;
+    background-color: #c5e9fa;
+
+    body.dark-mode & {
+      color: #EEEEEE;
+      border: 1px solid $borderColorDark;
+      background-color: #295077;
+    }
+  }
+
+  ol {
+    padding-left: 1em;
+    margin-bottom: 1.3em;
+
+    li {
+      padding-left: 0.5em;
+    }
+
+    ul {
+       margin-bottom: 0.8em;
+    }
+  }
+
+  ul {
+    list-style: '☛';
+    padding-left: 1em;
+    margin-bottom: 1.3em;
+
+    li {
+      padding-left: 1em;
+    }
+  }
+
+  hr {
+    margin-top: 3rem;
+
+    body.dark-mode & {
+      border-top: 1px solid $borderColorDark;
+    }
+  }
+
+  blockquote {
+    margin: 0.9em 0;
+    border: 1px solid $borderColor;
+    border-left: 5px solid $primary;
+    background-image: url('~assets/images/bg.webp');
+    box-shadow: inset 0rem 0rem 10rem 2rem rgba(255,255,255,0.8);
+
+    body.dark-mode & {
+      border: 1px solid $borderColorDark;
+      border-left: 5px solid $primaryDark;
+      background-image: url('~assets/images/bg-dark.webp');
+      box-shadow: inset 0rem 0rem 10rem 2rem rgba(0,0,0,0.2);
+    }
+  }
+
+  img {
+    max-width: 100%;
+    background-image: url('~assets/images/bg.webp');
+    border: 1px solid $borderColor;
+
+    body.dark-mode & {
+      border: 1px solid $borderColorDark;
+    }
+  }
+}

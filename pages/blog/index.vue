@@ -1,13 +1,13 @@
 <template>
   <div class="blog mb-50">
-    <section :key="index" v-for="(article, index) in articles" class="single-article mb-40 pb-20 pt-20 pt-30">
+    <section :key="index" v-for="(article, index) in articles" class="mb-40 pb-20 pt-20 pt-30">
       <p class="text-right text-gray">{{ article.date }}</p>
-      <h1 class="mb-15">⛵ {{ article.title }}</h1>
-      <hr />
+      <h1 class="mb-20">⛵ {{ article.title }}</h1>
+      <hr class="divider-line side-label mb-20" />
       <p>{{ article.description }}</p>
 
       <p class="mb-5 mt-10">
-        <router-link class="text-primary" :to="`/blog/${article.slug}`">>> Start Reading</router-link>
+        <router-link :to="`/blog/${article.slug}`">>> Start Reading</router-link>
       </p>
     </section>
   </div>
@@ -41,7 +41,7 @@ export default {
     async fetchArticles() {
       const articles = await this.$content('articles')
         .without(['body', 'toc'])
-        .limit(10)
+        .sortBy('title', 'desc')
         .fetch();
 
       for (const article of articles) {

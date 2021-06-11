@@ -6,15 +6,17 @@
       <nuxt-content :document="article" />
     </section>
 
-    <section class="mb-40" ref="utteranc-comments-element"></section>
+    <comments />
   </div>
 </template>
 
 
 <script>
+import Comments from '@/components/blog/Comments';
 
 export default {
   name: 'blog-index',
+  components: { Comments },
 
   head() {
     return {
@@ -29,25 +31,11 @@ export default {
     };
   },
 
+
   async asyncData ({ $content, route }) {
     const article = await $content(`articles/${route.params.article}`).fetch();
     article.date = article.slug.substr(0, 10).replace(/_/g, '-');
     return { article: article };
-  },
-
-
-  mounted() {
-    let utterancScript = document.createElement('script');
-  
-    utterancScript.setAttribute('src', 'https://utteranc.es/client.js');
-    utterancScript.setAttribute('repo', 'abdelaziz321/abdelaziz321.github.io');
-    utterancScript.setAttribute('issue-term', 'pathname');
-    utterancScript.setAttribute('label', 'Comments');
-    utterancScript.setAttribute('theme', 'github-light');
-    utterancScript.setAttribute('crossorigin', 'anonymous');
-    utterancScript.setAttribute('async', true);
-
-    this.$refs['utteranc-comments-element'].appendChild(utterancScript);
   }
 }
 </script>

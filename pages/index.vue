@@ -8,9 +8,9 @@
 
 
 <script>
-import About from '~/components/Home/About';
-import Tools from '~/components/Home/Tools';
-import Notes from '~/components/Home/Notes';
+import About from '~/components/home/About';
+import Tools from '~/components/home/Tools';
+import Notes from '~/components/home/Notes';
 
 export default {
   name: 'home-index',

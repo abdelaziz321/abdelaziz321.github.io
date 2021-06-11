@@ -1,3 +1,4 @@
+@use 'sass:math';
 $space-values : (
   0,
   3,
@@ -30,8 +31,16 @@ $space-prefixes : (
 @mixin make-spaces() {
   @each $attr-short, $attr-long in $space-prefixes { 
     @each $value in $space-values {
-      .#{$attr-short}-#{$value} {
-        #{$attr-long}: #{$value}#{'px'};
+      @media(min-width:768px) {
+        .#{$attr-short}-#{$value} {
+          #{$attr-long}: #{$value}#{'px'} !important;
+        }
+      }
+
+      @media(max-width:767px) {
+        .#{$attr-short}-#{$value} {
+          #{$attr-long}: #{$value * 0.5}#{'px'} !important;
+        }
       }
     }
   }

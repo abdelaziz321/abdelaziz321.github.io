@@ -1,10 +1,7 @@
 <template>
   <div id="app">
     <!-- NAVBAR -->
-    <div class="nav text-center pt-50 pb-50">
-      <router-link class="nav-item" to="/">Home</router-link>
-      <router-link class="nav-item" to="/blog">Blog</router-link>
-    </div>
+    <nav-bar />
 
     <!-- CONTENT -->
     <main class="container">
@@ -12,14 +9,19 @@
     </main>
 
     <!-- FOOTER -->
-    <div class="site-footer text-center pt-5 pb-5">developed with ♥ by Abdelaziz Sliem © {{ (new Date).getFullYear() }}</div>
+    <page-footer />
   </div>
 </template>
 
 
 <script>
+import NavBar from '@/components/partials/NavBar';
+import PageFooter from '@/components/partials/PageFooter';
+
 export default {
   name: 'app',
+
+  components: { NavBar, PageFooter },
 
   created() {
     // this is workaround for gh-pages after handling the 404 page

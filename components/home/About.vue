@@ -1,9 +1,9 @@
 <template>
-  <section class="paper">
+  <section>
     <div class="row pt-40 pb-40">
       <!-- BIO SIDE -->
       <div class="col-md-8">
-        <div class="pr-15 mb-20">
+        <div class="pr-15 mb-25">
           <p>Assalamualaikum,</p>
           <p>My name is Abdelaziz Sliem.</p>
           <p>I live in a lovely <span style="color: #f44336">💓</span> blue <span style="color: #1570a9">🌊</span> city in Egypt. Alexandria.</p>
@@ -12,18 +12,20 @@
           <a
             target="_blank"
             :href="`AbdelazizSliem.pdf`"
-            class="btn btn-dark mt-15"
+            class="btn btn-download mt-15"
           >Download My CV</a>
         </div>
       </div>
 
       <!-- IMAGE SIDE -->
       <div class="col-md-4">
-        <div class="pl-30 text-center">
-          <img width="100%" style="max-width: 350px" src="@/assets/images/me.jpeg" />
+        <div class="text-center">
+          <img width="100%" style="max-width: 350px" src="@/assets/images/me.webp" />
         </div>
       </div>
     </div>
+
+    <hr class="divider-line hide-mobile" />
 
     <!-- CONTACTS -->
     <div class="contacts summary pb-10 pt-25">
@@ -73,3 +75,32 @@ export default {
   }
 };
 </script>
+
+
+<style lang="scss">
+.contacts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  svg {
+    width: 20px;
+    fill: #BBBBBB;
+    margin: 0 10px;
+
+    &:hover {
+      fill: #222222;
+    }
+  }
+}
+
+body.dark-mode .contacts {
+  svg {
+    fill: #888888;
+
+    &:hover {
+      fill: #DDDDDD;
+    }
+  }
+}
+</style>

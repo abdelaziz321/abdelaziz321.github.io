@@ -1,23 +1,23 @@
-$color-0: #000000;
-$color-2: #222222;
-$color-6: #666666;
-$color-a: #AAAAAA;
-$color-b: #BBBBBB;
-$color-d: #DDDDDD;
-$color-e: #EEEEEE;
-$colorfa: #FAFAFA;
-$color-f: #FFFFFF;
-
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
 body {
-  color: $color-6;
-  font-size: 1.7rem;
+  color: #666666;
+  font-size: 16px;
   font-family: 'Roboto', sans-serif;
   line-height: 1.9;
   overflow-x: hidden;
-  background-color: $colorfa;
-  background-image: url('~assets/images/bg.png');
+  background-color: #FFFFFF;
+  background-image: url('~assets/images/bg.webp');
+  
+  &.dark-mode {
+    color: #999999;
+    background-color: #191c1f;
+    background-image: url('~assets/images/bg-dark.webp');
+  }
+
+  @media(max-width:767px) {
+    background-image: none !important;
+  }
 }
 
 main {
@@ -26,15 +26,28 @@ main {
 
 h1 {
   margin: 0;
-  font-size: 1.5em;
+  font-size: 3rem;
+  line-height: 1.5;
+
+  @media(max-width:767px) {
+    font-size: 2.4rem;
+  }
 }
 
 a {
-  color: $color-6;
+  color: $primary;
+
+  body.dark-mode & {
+    color: $primaryDark;
+  }
 
   &:hover {
-    color: $color-2;
+    color: $primary;
     font-weight: 500;
+
+    body.dark-mode &:hover {
+      color: $primaryDark;
+    }
   }
 }
 
@@ -42,31 +55,105 @@ p, ul {
   margin-bottom: 0;
 }
 
-.btn-dark {
+.btn-download {
   background-image: linear-gradient(to bottom, #444444 0%, #333333 100%);
   background-repeat: repeat-x;
   border-color: #222222;
   color: #EEEEEE;
+  text-decoration: none;
+
+  body.dark-mode & {
+    background-image: linear-gradient(to bottom, #EEEEEE 0%, #BBBBBB 100%);
+    border-color: #AAAAAA;
+    color: #222222;
+  }
 
   &:hover,
   &:focus {
     color: #EEEEEE;
     background-image: none;
     background-color: #222222;
+
+    body.dark-mode & {
+      color: #000000 !important;
+      background-image: none;
+      background-color: #EEEEEE;
+    }
   }
 }
 
 section {
   position: relative;
   padding: 1em 2.5em;
-  background-color: $color-f;
-  border: 1px solid $color-d;
+  background-color: rgba(255, 255, 255, 0.6);
+  border: 1px solid $borderColor;
+
+  body.dark-mode & {
+    background-color: rgba(25, 28, 31, 0.6);
+    border: 1px solid $borderColorDark;
+  }
+
+  @media(max-width:767px) {
+    border-width: 0 !important;
+    border-top-width: 1px !important;
+    padding: 1em 1em;
+  }
 }
 
-.summary {
-  border-top: 1px solid $color-e;
+.divider-line {
+  position: relative;
+  border: 0;
+  margin: 0;
+  height: 2px;
+  overflow: hidden;
+  background-color: #F7F7F7;
+
+  &::before {
+    content: "";
+    position: absolute;
+    display: block;
+    height: 4px;
+    width: 15%;
+    left: 50%;
+    bottom: -1px;
+    background-color: $primary;
+    transform: translateX(-50%);
+  }
+
+  body.dark-mode & {
+    background-color: #333333;
+  }
+
+  &.side-label::before {
+    left: 0;
+    width: 3rem;
+    transform: translateX(0);
+
+    body.dark-mode & {
+      background-color: $primaryDark;
+    }
+  }
+}
+
+a {
+  color: $primary;
+  text-decoration: underline;
+
+  body.dark-mode & {
+    color: $primaryDark;
+  }
 }
 
 .text-gray {
-  color: $color-a;
+  color: #AAAAAA;
+}
+
+@media(max-width:767px) {
+  .container {
+    padding: 0;
+  }
+
+  .hide-mobile {
+    display: none;
+  }
 }
