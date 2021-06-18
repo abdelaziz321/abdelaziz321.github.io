@@ -47,11 +47,8 @@ export default {
   // Content module configuration: https://go.nuxtjs.dev/config-content
   content: {
     markdown: {
-      prism: {  
-        // theme: 'prism-themes/themes/prism-a11y-dark.css',
-        theme: 'prism-themes/themes/prism-material-dark.css',
-        // theme: 'prism-themes/themes/prism-material-oceanic.css',
-        // theme: 'prism-themes/themes/prism-vsc-dark-plus.css',
+      prism: {
+        theme: 'prism-themes/themes/prism-material-dark.css'
       }
     }
   },

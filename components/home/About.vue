@@ -88,18 +88,16 @@ export default {
     fill: #BBBBBB;
     margin: 0 10px;
 
+    body.dark-mode & {
+      fill: #888888;
+    }
+
     &:hover {
       fill: #222222;
-    }
-  }
-}
 
-body.dark-mode .contacts {
-  svg {
-    fill: #888888;
-
-    &:hover {
-      fill: #DDDDDD;
+      body.dark-mode & {
+        fill: #DDDDDD;
+      }
     }
   }
 }
