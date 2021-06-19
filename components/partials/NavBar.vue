@@ -1,14 +1,22 @@
 <template>
-  <div class="nav text-center pt-50 pb-50">
-    <router-link class="nav-item" to="/">Home</router-link>
-    <router-link class="nav-item" to="/blog">Blog</router-link>
+  <div>
+    <!-- UPPER NAVBAR -->
+    <div class="upper-nav pt-5 pb-5">
+      <a href="https://www.youtube.com/watch?v=xCH8ffSVuB0" target="_blank">#PalestinianLivesMatter</a>
+    </div>
+    
+    <!-- NAVBAR -->
+    <div class="nav text-center pt-50 pb-50">
+      <router-link class="nav-item" to="/">Home</router-link>
+      <router-link class="nav-item" to="/blog">Blog</router-link>
 
-    <label class="nav-item nav-switch mb-0">
-      <input type="checkbox" v-model="isDarkMode" @change="updateColorScheme(isDarkMode ? 'dark' : 'light')" />
-      <span class="slider">
-        <crescent-icon class="crescent-icon" />
-      </span>
-    </label>
+      <label class="nav-item nav-switch mb-0">
+        <input type="checkbox" v-model="isDarkMode" @change="updateColorScheme(isDarkMode ? 'dark' : 'light')" />
+        <span class="slider">
+          <crescent-icon class="crescent-icon" />
+        </span>
+      </label>
+    </div>
   </div>
 </template>
 
@@ -51,6 +59,15 @@ export default {
 
 
 <style lang="scss">
+.upper-nav {
+  text-align: center;
+  background-color: #1e2933;
+
+  a {
+    color: #FFFFFF !important;
+  }
+}
+
 .nav-item {
   margin: 0 1em;
   color: #333333;
