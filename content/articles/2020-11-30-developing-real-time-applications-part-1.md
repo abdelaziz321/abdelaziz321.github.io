@@ -1,13 +1,13 @@
 ---
 title: Developing Real Time Applications | Part 1
-description: Delivering data from the server to the client using short polling & long polling & server-sent events `SSE` & web-sockets.
+description: The main concept we revolve around here is delivering data from the server to the client whenever some data is changed in the server using short polling & long polling & server-sent events `SSE` & web-sockets.
 ---
 
 Actually, the main purpose of starting this series is to improve my English writing skills. also for the last 6 months, I had many tasks in my work that required me to deal with real-time applications like building a simple chat, showing real-time statistics/notifications in a dashboard...etc.
 
 So in this series, I'll try to cover some ideas, approaches, technologies, and code examples around this concept. I don't have much experience so there are no headlines. I will just start the journey and let's find out together how much this series could grow.
 
-> will be so glad for your help in fixing a typo, introducing a better way to construct a phrase, or giving me some feedback about my writing.
+> will be so glad for your help in fixing a typo, introducing a better way to construct a phrase, or giving me some feedback about my English writing.
 
 Now, I'm writing this post while enjoying listening to this calm and peaceful <a href="https://soundcloud.com/wafa99/ook0ophsp71t" target="_blank">voice</a> ... happy reading 😌
 
@@ -374,14 +374,14 @@ Whenever a computer wants to send data to another computer over TCP, they both n
 
 Now imagine we have a server that serves a client chat application which is built using the **short polling** technique. If we have 1 client communicating with the server then each HTTP request is considered as a different TCP connection. And If we have multiple clients then the server needs to handle multiple TCP connections for every single client. of course this is high overhead.
 
-What web-socket protocol is introduced is to use only single TCP connection for every single client. and data can be sent in both directions between the client & server.
+What web-socket protocol is introduced is to use only a single TCP connection for every single client. and data can be sent in both directions between the client & server.
 
 WebSocket Protocol consists of 2 parts:
 
 1. **handshake**:
    - a client sends a traditional HTTP request with some specific headers like `Upgrade: WebSocket`, `Connection: Upgrade`.
    - if the server supports the WebSocket Protocol, it will replay with some headers and completes the handshake.
-2. **data transfer**: if the handshake is successful,(the client & server have agreed to use the existing TCP connection as a WebSocket connection), each side can send **messages** whenever he wants.
+2. **data transfer**: if the handshake is successful, (the client & server have agreed to use the existing TCP connection as a WebSocket connection), each side can send **messages** whenever he wants.
 
 This diagram will help us to remember the difference between the traditional HTTP and Websocket Protocol:
 
@@ -398,7 +398,7 @@ We talked about different approaches and techniques. but at the end of this part
 In the next parts, we may talk about some concepts like:
 - socket io
 - socketo me
-- diving deeper in web-sockets.
+- diving deeper into web-sockets.
 - WebRTC
 - Firebase! FCM! pusher! one-signal!
 - Laravel-Websocket

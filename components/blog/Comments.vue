@@ -9,7 +9,7 @@ export default {
 
   mounted() {
     this.setUtterancSection(
-      document.body.classList.contains('dark-mode')
+      document.body.classList.contains('dark-mode') ? 'dark' : 'light'
     );
 
     this.$bus.$on('updateColorScheme', (colorScheme) => {

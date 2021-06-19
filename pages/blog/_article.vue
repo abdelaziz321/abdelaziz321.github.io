@@ -6,6 +6,8 @@
       <nuxt-content :document="article" />
     </section>
 
+    <support />
+
     <comments />
   </div>
 </template>
@@ -13,10 +15,11 @@
 
 <script>
 import Comments from '@/components/blog/Comments';
+import Support from '@/components/partials/Support.vue';
 
 export default {
   name: 'blog-index',
-  components: { Comments },
+  components: { Comments, Support },
 
   head() {
     return {

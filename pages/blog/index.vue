@@ -10,13 +10,18 @@
         <router-link :to="`/blog/${article.slug}`">>> Start Reading</router-link>
       </p>
     </section>
+
+    <support />
   </div>
 </template>
 
 
 <script>
+import Support from '~/components/partials/Support.vue';
+
 export default {
   name: 'blog-index',
+  components: { Support },
 
   head() {
     return {
