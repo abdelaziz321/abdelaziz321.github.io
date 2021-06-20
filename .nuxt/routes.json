@@ -1,0 +1,23 @@
+[
+  {
+    "name": "blog",
+    "path": "/blog",
+    "component": "/mnt/hard/abdelaziz/dev/projects/me/abdelaziz321.github.io/pages/blog/index.vue",
+    "chunkName": "pages/blog/index",
+    "_name": "_d04a77a0"
+  },
+  {
+    "name": "blog-article",
+    "path": "/blog/:article",
+    "component": "/mnt/hard/abdelaziz/dev/projects/me/abdelaziz321.github.io/pages/blog/_article.vue",
+    "chunkName": "pages/blog/_article",
+    "_name": "_75fd3349"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/mnt/hard/abdelaziz/dev/projects/me/abdelaziz321.github.io/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_5ca86697"
+  }
+]

@@ -1,0 +1,44 @@
+{
+  "About": {
+    "description": "Auto imported from /components/home/About.vue"
+  },
+  "LazyAbout": {
+    "description": "Auto imported from /components/home/About.vue"
+  },
+  "Notes": {
+    "description": "Auto imported from /components/home/Notes.vue"
+  },
+  "LazyNotes": {
+    "description": "Auto imported from /components/home/Notes.vue"
+  },
+  "Tools": {
+    "description": "Auto imported from /components/home/Tools.vue"
+  },
+  "LazyTools": {
+    "description": "Auto imported from /components/home/Tools.vue"
+  },
+  "Comments": {
+    "description": "Auto imported from /components/blog/Comments.vue"
+  },
+  "LazyComments": {
+    "description": "Auto imported from /components/blog/Comments.vue"
+  },
+  "NavBar": {
+    "description": "Auto imported from /components/partials/NavBar.vue"
+  },
+  "LazyNavBar": {
+    "description": "Auto imported from /components/partials/NavBar.vue"
+  },
+  "PageFooter": {
+    "description": "Auto imported from /components/partials/PageFooter.vue"
+  },
+  "LazyPageFooter": {
+    "description": "Auto imported from /components/partials/PageFooter.vue"
+  },
+  "Support": {
+    "description": "Auto imported from /components/partials/Support.vue"
+  },
+  "LazySupport": {
+    "description": "Auto imported from /components/partials/Support.vue"
+  }
+}
