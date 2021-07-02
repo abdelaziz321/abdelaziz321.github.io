@@ -114,6 +114,10 @@
 
     li {
       padding-left: 1em;
+
+      ul > li {
+        list-style: '𐏐';
+      }
     }
   }
 
