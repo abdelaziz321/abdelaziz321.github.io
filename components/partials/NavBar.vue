@@ -1,10 +1,5 @@
 <template>
   <div>
-    <!-- UPPER NAVBAR -->
-    <div class="upper-nav pt-5 pb-5">
-      <a href="https://www.youtube.com/watch?v=xCH8ffSVuB0" target="_blank">#PalestinianLivesMatter</a>
-    </div>
-    
     <!-- NAVBAR -->
     <div class="nav text-center pt-50 pb-50">
       <router-link class="nav-item" to="/">Home</router-link>
@@ -72,7 +67,7 @@ export default {
   margin: 0 1em;
   color: #333333;
   text-decoration: none;
-  
+
   body.dark-mode & {
     color: #BBBBBB;
   }
@@ -85,7 +80,7 @@ export default {
   height: 22px;
   vertical-align: middle;
 
-  input { 
+  input {
     opacity: 0;
     width: 0;
     height: 0;
@@ -99,7 +94,7 @@ export default {
       background-color: #f5f5f5;
     }
   }
-  
+
   .slider {
     position: absolute;
     cursor: pointer;
