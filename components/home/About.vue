@@ -11,7 +11,7 @@
           <p>Also, I'm studying CS/Statistics At Faculty of Sciences, Alexandria University.</p>
           <a
             target="_blank"
-            :href="`AbdelazizSliem.pdf`"
+            href="Abdelaziz Sliem - Full Stack Developer.pdf"
             class="btn btn-download mt-15"
           >Download My CV</a>
         </div>
