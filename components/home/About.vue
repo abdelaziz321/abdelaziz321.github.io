@@ -49,10 +49,10 @@ import linkedin from '@/assets/images/contacts/linkedin.svg?inline';
 import stackoverflow from '@/assets/images/contacts/stackoverflow.svg?inline';
 import upwork from '@/assets/images/contacts/upwork.svg?inline';
 import freelancer from '@/assets/images/contacts/freelancer.svg?inline';
-import themeforest from '@/assets/images/contacts/themeforest.svg?inline';
+// import themeforest from '@/assets/images/contacts/themeforest.svg?inline';
 import facebook from '@/assets/images/contacts/facebook.svg?inline';
 import twitter from '@/assets/images/contacts/twitter.svg?inline';
-import whatsapp from '@/assets/images/contacts/whatsapp.svg?inline';
+// import whatsapp from '@/assets/images/contacts/whatsapp.svg?inline';
 
 export default {
   name: 'about',
@@ -66,10 +66,10 @@ export default {
         { icon: stackoverflow, link: 'https://stackoverflow.com/users/6739241/abdelaziz-sliem' },
         { icon: upwork,        link: 'https://upwork.com/freelancers/~014b83515ee721dcb4' },
         { icon: freelancer,    link: 'https://freelancer.ca/u/abdelaziz321' },
-        { icon: themeforest,   link: 'https://themeforest.net/user/abdelaziz_sliem/portfolio' },
-        { icon: facebook,      link: 'https://facebook.com/abdelazizsliem321' },
+        // { icon: themeforest,   link: 'https://themeforest.net/user/abdelaziz_sliem/portfolio' },
+        { icon: facebook,      link: 'https://www.facebook.com/profile.php?id=100077407050340' },
         { icon: twitter,       link: 'https://twitter.com/abdelaziz_sliem' },
-        { icon: whatsapp,      link: '#' },
+        // { icon: whatsapp,      link: '#' },
       ]
     };
   }

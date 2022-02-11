@@ -40,6 +40,9 @@
 
 <script>
 import php from '@/assets/images/tools/php.svg?inline';
+import python from '@/assets/images/tools/python.svg?inline';
+import django from '@/assets/images/tools/django.svg?inline';
+import dotnetcore from '@/assets/images/tools/dotnetcore.svg?inline';
 import javascript from '@/assets/images/tools/javascript.svg?inline';
 import mysql from '@/assets/images/tools/mysql.svg?inline';
 import laravel from '@/assets/images/tools/laravel.svg?inline';
@@ -53,8 +56,7 @@ import digitalocean from '@/assets/images/tools/digitalocean.svg?inline';
 // import bootstrap from '@/assets/images/tools/bootstrap.svg?inline';
 // import trello from '@/assets/images/tools/trello.svg?inline';
 import scss from '@/assets/images/tools/scss.svg?inline';
-// import python from '@/assets/images/tools/python.svg?inline';
-// import django from '@/assets/images/tools/django.svg?inline';
+import tailwindcss from '@/assets/images/tools/tailwindcss.svg?inline';
 import nginx from '@/assets/images/tools/nginx.svg?inline';
 import nuxtjs from '@/assets/images/tools/nuxtjs.svg?inline';
 import electron from '@/assets/images/tools/electron.svg?inline';
@@ -78,7 +80,10 @@ export default {
   data: function () {
     return {
       tools: [
+        { key: 'python',       icon: python,       title: 'python',       level: 'mid' },
+        { key: 'django',       icon: django,       title: 'django',       level: 'mid' },
         { key: 'php',          icon: php,          title: 'php',          level: 'high' },
+        { key: 'dotnetCore',   icon: dotnetcore,   title: 'dotnet core',  level: 'mid' },
         { key: 'javascript',   icon: javascript,   title: 'javascript',   level: 'high' },
         { key: 'mysql',        icon: mysql,        title: 'mysql',        level: 'high' },
         { key: 'laravel',      icon: laravel,      title: 'laravel',      level: 'high' },
@@ -93,9 +98,7 @@ export default {
         // { key: 'bootstrap',    icon: bootstrap,    title: 'bootstrap',    level: 'high' },
         // { key: 'trello',       icon: trello,       title: 'trello',       level: 'high' },
         { key: 'scss',         icon: scss,         title: 'scss',         level: 'high' },
-        { key: 'webpack',      icon: webpack,      title: 'webpack',      level: 'low'  },
-        // { key: 'python',       icon: python,       title: 'python',       level: 'mid'  },
-        // { key: 'django',       icon: django,       title: 'django',       level: 'mid'  },
+        { key: 'tailwindcss',  icon: tailwindcss,  title: 'tailwindcss',  level: 'high' },
         { key: 'electron',     icon: electron,     title: 'electron',     level: 'mid'  },
         { key: 'nodejs',       icon: nodejs,       title: 'nodejs',       level: 'low'  },
         { key: 'digitalocean', icon: digitalocean, title: 'digitalocean', level: 'high' },
