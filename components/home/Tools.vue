@@ -194,4 +194,26 @@ export default {
     &.low { background-color: #da2c15; }
   }
 }
+
+.dotnet-core-icon {
+  .transparency {
+    fill: #0001;
+  }
+
+  .text-color {
+    fill: #fff;
+
+    body.dark-mode & {
+      fill: #111;
+    }
+  }
+
+  .background-color {
+    fill: #eee;
+
+    body.dark-mode & {
+      fill: #444;
+    }
+  }
+}
 </style>
