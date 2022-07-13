@@ -7,11 +7,11 @@
           <p>Assalamualaikum,</p>
           <p>My name is Abdelaziz Sliem.</p>
           <p>I live in a lovely <span style="color: #f44336">💓</span> blue <span style="color: #1570a9">🌊</span> city in Egypt. Alexandria.</p>
-          <p>I work as a Full-Stack developer with over two years of experience. I build web apps, SPAs, REST APIs, and Electron desktop apps.</p>
+          <p>I work as a software developer with over 3 years of experience. I build web apps, SPAs, REST APIs, and Electron desktop apps.</p>
           <p>Also, I'm studying CS/Statistics At Faculty of Sciences, Alexandria University.</p>
           <a
             target="_blank"
-            href="Abdelaziz Sliem - Full Stack Developer.pdf"
+            href="Abdelaziz Sliem - Software Developer.pdf"
             class="btn btn-download mt-15"
           >Download My CV</a>
         </div>
@@ -20,7 +20,7 @@
       <!-- IMAGE SIDE -->
       <div class="col-md-4">
         <div class="text-center">
-          <img width="100%" style="max-width: 350px" src="@/assets/images/me.webp" />
+          <img width="100%" style="max-width: 240px" src="@/assets/images/me.webp" />
         </div>
       </div>
     </div>
