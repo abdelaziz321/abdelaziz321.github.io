@@ -42,6 +42,18 @@ export default {
     '@nuxt/content',
     // https://github.com/nuxt-community/svg-module
     "@nuxtjs/svg",
+    // https://sitemap.nuxtjs.org/
+    [
+      '@nuxtjs/sitemap',
+      {
+        hostname: 'https://abdelaziz321.github.io',
+        routes: [
+          '/blog/2020-11-30-developing-real-time-applications-part-1',
+          '/blog/2021-07-02_seriously_why_we_are_using_ssl_certificates',
+          '/blog/2022-07-12-things_i_missed_during_my_cs_education_1',
+        ]
+      }
+    ]
   ],
 
   // Content module configuration: https://go.nuxtjs.dev/config-content

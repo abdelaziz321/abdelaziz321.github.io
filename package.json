@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@nuxt/content": "^1.11.1",
+    "@nuxtjs/sitemap": "^2.4.0",
     "core-js": "^3.8.2",
     "markdown-it-highlightjs": "^3.4.0",
     "nuxt": "^2.14.12",
