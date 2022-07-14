@@ -1,6 +1,6 @@
 <template>
   <div class="page-footer text-center pt-5 pb-5">
-    developed with ♥ by Abdelaziz Sliem ©
+    developed with ♥ by Abdelaziz Mahmoud ©
     {{ (new Date).getFullYear() }}
   </div>
 </template>

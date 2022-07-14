@@ -25,7 +25,7 @@ export default {
 
   head() {
     return {
-      title: 'Abdelaziz Sliem | Blog'
+      title: 'Abdelaziz Mahmoud | Blog'
     };
   },
 

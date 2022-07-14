@@ -23,7 +23,7 @@ export default {
 
   head() {
     return {
-      title: `Abdelaziz Sliem: ${this.article.title}`,
+      title: `Abdelaziz Mahmoud: ${this.article.title}`,
       meta: [
         {
           hid: this.article.title,
