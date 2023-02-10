@@ -4,7 +4,7 @@
     <nav-bar />
 
     <!-- CONTENT -->
-    <main class="container">
+    <main class="container" style="min-height: calc(100vh - 167px)">
       <Nuxt />
     </main>
 

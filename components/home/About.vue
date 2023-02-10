@@ -9,11 +9,11 @@
           <p>I live in a lovely <span style="color: #f44336">💓</span> blue <span style="color: #1570a9">🌊</span> city in Egypt. Alexandria.</p>
           <p>I work as a software developer with over 3 years of experience. I build web apps, SPAs, REST APIs, and Electron desktop apps.</p>
           <p>Also, I'm studying CS/Statistics At Faculty of Sciences, Alexandria University.</p>
-          <a
+          <!-- <a
             target="_blank"
             href="Abdelaziz Mahmoud - Software Developer.pdf"
             class="btn btn-download mt-15"
-          >Download My CV</a>
+          >Download My CV</a> -->
         </div>
       </div>
 
@@ -48,10 +48,10 @@ import github from '@/assets/images/contacts/github.svg?inline';
 import linkedin from '@/assets/images/contacts/linkedin.svg?inline';
 import stackoverflow from '@/assets/images/contacts/stackoverflow.svg?inline';
 import upwork from '@/assets/images/contacts/upwork.svg?inline';
-import freelancer from '@/assets/images/contacts/freelancer.svg?inline';
+// import freelancer from '@/assets/images/contacts/freelancer.svg?inline';
 // import themeforest from '@/assets/images/contacts/themeforest.svg?inline';
-import facebook from '@/assets/images/contacts/facebook.svg?inline';
-import twitter from '@/assets/images/contacts/twitter.svg?inline';
+// import facebook from '@/assets/images/contacts/facebook.svg?inline';
+// import twitter from '@/assets/images/contacts/twitter.svg?inline';
 import whatsapp from '@/assets/images/contacts/whatsapp.svg?inline';
 
 export default {
@@ -65,10 +65,10 @@ export default {
         { icon: linkedin,      link: 'https://www.linkedin.com/in/abdelaziz-mahmoud-2b344b138/' },
         { icon: stackoverflow, link: 'https://stackoverflow.com/users/6739241/abdelaziz-mahmoud' },
         { icon: upwork,        link: 'https://upwork.com/freelancers/~014b83515ee721dcb4' },
-        { icon: freelancer,    link: 'https://freelancer.ca/u/abdelaziz321' },
+        // { icon: freelancer,    link: 'https://freelancer.ca/u/abdelaziz321' },
         // { icon: themeforest,   link: 'https://themeforest.net/user/abdelaziz_sliem/portfolio' },
-        { icon: facebook,      link: 'https://www.facebook.com/profile.php?id=100077407050340' },
-        { icon: twitter,       link: 'https://twitter.com/abdelaziz3210' },
+        // { icon: facebook,      link: 'https://www.facebook.com/profile.php?id=100077407050340' },
+        // { icon: twitter,       link: 'https://twitter.com/abdelaziz3210' },
         { icon: whatsapp,      link: 'https://wa.me/+201026642884' },
       ]
     };
