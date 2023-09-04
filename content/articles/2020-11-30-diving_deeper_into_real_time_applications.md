@@ -1,15 +1,15 @@
 ---
-title: Developing Real Time Applications | Part 1
+title: Diving Deeper Into Real Time Applications
 description: The main concept we revolve around here is delivering data from the server to the client whenever some data is changed in the server using short polling & long polling & server-sent events `SSE` & web-sockets.
 ---
 
-Actually, the main purpose of starting this series is to improve my English writing skills. also for the last 6 months, I had many tasks in my work that required me to deal with real-time applications like building a simple chat, showing real-time statistics/notifications in a dashboard...etc.
+Actually, the main purpose of starting this blog is to improve my English writing skills. also for the last 6 months, I had many tasks in my work that required me to deal with real-time applications like building a simple chat, showing real-time statistics/notifications in a dashboard...etc.
 
-So in this series, I'll try to cover some ideas, approaches, technologies, and code examples around this concept. I don't have much experience so there are no headlines. I will just start the journey and let's find out together how much this series could grow.
+So in this series, I'll try to cover some ideas, approaches, technologies, and code examples around this concept. I don't have much experience so there are no headlines. I will just start the journey and let's find out together how much we can get deeper.
 
 > will be so glad for your help in fixing a typo, introducing a better way to construct a phrase, or giving me some feedback about my English writing.
 
-Now, I'm writing this post while enjoying listening to this calm and peaceful <a href="https://soundcloud.com/wafa99/ook0ophsp71t" target="_blank">voice</a> ... happy reading 😌
+Now, I'm writing this post while enjoying listening to this calm and peaceful <a href="https://soundcloud.com/wafa99/ook0ophsp71t" target="_blank">voice</a> ... happy reading 😊
 
 ---
 
@@ -21,7 +21,7 @@ When the client is asking the server for data, this is called **client pull**.
 
 The reverse, when the transmission of data is initiated by the server, this is called **server push**.
 
-![](/articles-data/2020-11-30_developing_real-time_applications_-_part_1/images/1.png)
+![](/articles-data/2020-11-30-diving_deeper_into_real_time_applications/images/1.png)
 
 To implement these 2 approaches we have some techniques:
 
@@ -29,8 +29,6 @@ To implement these 2 approaches we have some techniques:
 - long polling  (client pull)
 - server-sent events `SSE` (server push)
 - web-sockets (server push)
-
-In this part, we will try to cover these 4 techniques.
 
 ---
 
@@ -110,63 +108,41 @@ and for the client we can write this script.
 
 <head>
   <title>Dashboard</title>
-  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <!-- VUE will show us the fetched top seller here -->
-  <div id="app">
+  <div>
     <h2>Top Seller</h2>
-    {{ topSeller }}
+    <p id="top-seller"></p>
   </div>
 
   <script>
-    new Vue({
-      el: '#app',
+    function fetchTopSeller() {
+      const xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState != 4) return;
 
+        // --- success
+        if (this.status == 200) {
+          const response = JSON.parse(xhttp.responseText);
+          document.getElementById('top-seller').innerHTML = response.top_seller;
 
-      data: {
-        topSeller: null
-      },
-
-
-      // here we start to fetch the top seller for the first time
-      mounted() {
-        this.fetchTopSeller();
-      },
-
-
-      methods: {
-        fetchTopSeller() {
-          const vue = this;
-          const xhttp = new XMLHttpRequest();
-          xhttp.onreadystatechange = function () {
-            if (this.readyState != 4) return;
-
-            // --- success
-            if (this.status == 200) {
-              vue.showTopSeller(xhttp.responseText);
-              
-              // here we will fetch the top seller again after 3 seconds
-              setTimeout(function () { vue.fetchTopSeller(); }, 3000);
-            }
-            // --- something went wrong
-            else {
-              window.alert('error');
-            }
-          }
-
-          xhttp.open('GET', 'http://127.0.0.1:8000/server.php', true);
-          xhttp.send();
-        },
-
-        showTopSeller(responseText) {
-          const response = JSON.parse(responseText);
-          this.topSeller = response.top_seller;
+          // here we will fetch the top seller again after 3 sec
+          setTimeout(function () { vue.fetchTopSeller(); }, 3000);
+        }
+        // --- something went wrong
+        else {
+          window.alert('error');
         }
       }
-    })
+
+      const query = this.topSeller ? `?top_seller=${this.topSeller}` : '';
+      xhttp.open('GET', `http://127.0.0.1:8000/server.php${query}`, true);
+      xhttp.send();
+    }
+
+    fetchTopSeller();
   </script>
 </body>
 
@@ -177,7 +153,7 @@ Notice how we used the `setTimeout` function in the success part of the `fetchTo
 
 and here is how the request keeps going to `server.php` every 3 seconds. now the data seem to be real-time.
 
-![](/articles-data/2020-11-30_developing_real-time_applications_-_part_1/images/2.png)
+![](/articles-data/2020-11-30-diving_deeper_into_real_time_applications/images/2.png)
 
 ---
 
@@ -208,41 +184,45 @@ echo json_encode([
 ]);
 
 # response example: {"top_seller":"Hassan"}
-
 ```
 
 Here the server is expecting the client's `top_seller` value. and will hold the connection until the `$serverTopSeller` value will differ from the client value. notice how the server is calling `getTopSellerToday()` function each second as long as the client & server values are the same.
 
-Now let's figure out how could we modify the client code. here we are only interested in the `fetchTopSeller` method.
+Now let's figure out how could we modify the client code.
 
 ```js [💻 client.html]
 // ...
+  <script>
+  var topSeller;
 
-    fetchTopSeller() {
-      const vue = this;
-      const xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function () {
-        if (this.readyState != 4) return;
+  function fetchTopSeller() {
+    const xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState != 4) return;
 
-        // --- success
-        if (this.status == 200) {
-          vue.showTopSeller(xhttp.responseText);
-        }
-        // --- fetch the top seller again in case (success|request-timeout)
-        if ([200, 500].includes(this.status)) {
-          vue.fetchTopSeller();
-        }
-        // --- something went wrong
-        else {
-          window.alert('error');
-        }
+      // --- success
+      if (this.status == 200) {
+        const response = JSON.parse(xhttp.responseText);
+        topSeller = response.top_seller;
+        document.getElementById('top-seller').innerHTML = topSeller;
       }
+      // --- fetch the top seller again in case (success|request-timeout)
+      if ([200, 500].includes(this.status)) {
+        fetchTopSeller();
+      }
+      // --- something went wrong
+      else {
+        window.alert('error');
+      }
+    }
 
-      const query = this.topSeller ? `?top_seller=${this.topSeller}` : '';
-      xhttp.open('GET', `http://127.0.0.1:8000/server.php${query}`, true);
-      xhttp.send();
-    },
+    const query = topSeller ? `?top_seller=${topSeller}` : '';
+    xhttp.open('GET', `http://127.0.0.1:8000/server.php${query}`, true);
+    xhttp.send();
+  }
 
+  fetchTopSeller();
+  </script>
 // ...
 ```
 
@@ -250,13 +230,13 @@ Notice how we call the `fetchTopSeller()` immediately after getting the response
 
 This is the chrome's network tap, and you can see how the last request is pending. it's obvious that at this moment the client's `top_seller` value equals to the server value which is `Hussain`. and now the server is holding the connection by using `sleep(1)` method until its value differs from the client value.
 
-![](/articles-data/2020-11-30_developing_real-time_applications_-_part_1/images/3.png)
+![](/articles-data/2020-11-30-diving_deeper_into_real_time_applications/images/3.png)
 
 I really liked this technique the first time I implemented it.
 
 Before moving forward to `SSE`, this diagram will help us to remember the difference between short and long polling.
 
-![](/articles-data/2020-11-30_developing_real-time_applications_-_part_1/images/4.png)
+![](/articles-data/2020-11-30-diving_deeper_into_real_time_applications/images/4.png)
 
 ---
 
@@ -266,7 +246,7 @@ This technique is very interesting although it's not popular. we still using the
 
 Firstly the client sends a single request to the server. after that, the server can keep pushing data (sending events) to the client. on the other hand, the client needs to handle the received data (listening to server events).
 
-![](/articles-data/2020-11-30_developing_real-time_applications_-_part_1/images/5.png)
+![](/articles-data/2020-11-30-diving_deeper_into_real_time_applications/images/5.png)
 
 Note that the client can’t send messages to the server, only receiving data. 
 
@@ -301,8 +281,8 @@ do {
     if (connection_aborted()) break;
 
     sleep(1);
-
-} while (true);
+}
+while (true);
 
 /*
  * # message example:
@@ -322,15 +302,17 @@ Now let's figure out how could we modify the client code. here we are also only 
 
 ```js [💻 client.html]
 // ...
-
-    fetchTopSeller() {
-      const vue = this;
+  <script>
+    function fetchTopSeller() {
       const eventSource = new EventSource('http://127.0.0.1:8000/server.php');
       eventSource.addEventListener("newTopSeller", function (event) {
-        vue.showTopSeller(event.data);
+        const response = JSON.parse(event.data);
+        document.getElementById('top-seller').innerHTML = response.top_seller;
       });
-    },
+    }
 
+    fetchTopSeller();
+  </script>
 // ...
 ```
 
@@ -340,7 +322,7 @@ Note that, If the connection drops, the `EventSource` fires an error event and a
 
 Here is how `SSE` looks like in Chrome's network tab. notice inside the `EventStream` tab we can see the *Type* which is the event that we are listening to.
 
-![](/articles-data/2020-11-30_developing_real-time_applications_-_part_1/images/6.png)
+![](/articles-data/2020-11-30-diving_deeper_into_real_time_applications/images/6.png)
 
 Before moving forward to web-socket you need to know that `SSE` is not supported by **IE**. and also the maximum number of the opened connections for a single domain in the browser - for all tabs - is 6.
 
@@ -374,7 +356,7 @@ Whenever a computer wants to send data to another computer over TCP, they both n
 
 Now imagine we have a server that serves a client chat application which is built using the **short polling** technique. If we have 1 client communicating with the server then each HTTP request is considered as a different TCP connection. And If we have multiple clients then the server needs to handle multiple TCP connections for every single client. of course this is high overhead.
 
-What web-socket protocol is introduced is to use only a single TCP connection for every single client. and data can be sent in both directions between the client & server.
+What web-socket protocol is introduced to use only a single TCP connection for every single client. and data can be sent in both directions between the client & server.
 
 WebSocket Protocol consists of 2 parts:
 
@@ -385,22 +367,22 @@ WebSocket Protocol consists of 2 parts:
 
 This diagram will help us to remember the difference between the traditional HTTP and Websocket Protocol:
 
-![](/articles-data/2020-11-30_developing_real-time_applications_-_part_1/images/7.png)
+![](/articles-data/2020-11-30-diving_deeper_into_real_time_applications/images/7.png)
 
-This is enough for now and in the future, we will dive deeper into this technique and write some code.
+This is enough for now and in the future, we might dive deeper into this technique and write some code.
 
 ---
 
 ## Summary:
 
-We talked about different approaches and techniques. but at the end of this part, we need to remember that there is no an old bad technique & a new good one. you know the software you are building and you have to pick the suitable solution for your situation. 
+We talked about different approaches and techniques. but at the end of this post, we need to remember that there is no an old bad technique & a new good one. we should pick the suitable solution for our situation. 
 
-In the next parts, we may talk about some concepts like:
+In the future, we might talk about some concepts like:
 - socket io
 - socketo me
 - diving deeper into web-sockets.
 - WebRTC
-- Firebase! FCM! pusher! one-signal!
+- Firebase, FCM, pusher, one-signal
 - Laravel-Websocket
 
-see you in the next part in-sha-Allah. salam.
+see you soon in-sha-Allah. salam.

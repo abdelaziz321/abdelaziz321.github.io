@@ -32,9 +32,9 @@ do {
 
     if (connection_aborted()) break;
 
-    sleep(3);
-
-} while (true);
+    sleep(1);
+}
+while (true);
 
 /*
  * # message example:

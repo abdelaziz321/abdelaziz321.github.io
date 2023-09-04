@@ -1,5 +1,5 @@
 ---
-title: Seriously, Why we are using SSL Certificates?
+title: Diving Deeper Into SSL Certificates?
 description: We are going to discuss some securety concepts like encryption / decryption, symmetric / asymmetric key algorithms, digital signature, digital certificates, public key infrastructure, chain of trust, root certificates, intermediate certificates, HTTPS, SSL/TLS certificates and certificate authorities.
 ---
 
@@ -7,29 +7,29 @@ Recently in my work, I was supposed to buy and install SSL certificates for seve
 
 > will be so glad for your help in fixing a typo, introducing a better way to construct a phrase, or giving me some feedback about my English writing.
 
-Now, I'm writing this post while listening to this calm and peaceful <a href="https://soundcloud.com/hatemfarid/xddjhu3vylll" target="_blank">voice</a> ... happy reading 😌
+Now, I'm writing this post while listening to this calm and peaceful <a href="https://soundcloud.com/hatemfarid/xddjhu3vylll" target="_blank">voice</a> ... happy reading 😊
 
 ---
 
 This may be a long post, You can skip around to the different sections:
 
-0. [Overview](#sec-0).
-1. [Symmetric vs Asymmetric Key algorithms](#sec-1).
-    1. [Symmetric-key algorithms](#sec-1-1).
-    2. [Asymmetric-key algorithms](#sec-1-2).
-2. [Digital Signature](#sec-2).
-3. [Digital Certificates, Certificate Authorities, and Public Key Infrastructure PKI](#sec-3).
-4. [Chain of Trust](#sec-4).
-5. [HTTPS, SSL/TLS, and SSL Certificates](#sec-5).
-    1. [SSL vs TLS](#sec-5-1).
-    2. [SSL/TLS certificates](#sec-5-2).
-    3. [The short story](#sec-5-3).
-    4. [TLS/SSL certificate forms](#sec-5-4).
-6. [Summary](#sec-6).
+0. [Overview](#overview).
+1. [Symmetric vs Asymmetric Key algorithms](#symmetric-vs-asymmetric).
+    1. [Symmetric-key algorithms](#symmetric-key).
+    2. [Asymmetric-key algorithms](#asymmetric-key).
+2. [Digital Signature](#digital-signature).
+3. [Digital Certificates, Certificate Authorities, and Public Key Infrastructure PKI](#digital-certificates).
+4. [Chain of Trust](#chain-of-trust).
+5. [HTTPS, SSL/TLS, and SSL Certificates](#https).
+    1. [SSL vs TLS](#ssl-vs-tls).
+    2. [SSL/TLS certificates](#ssl).
+    3. [The short story](#story).
+    4. [TLS/SSL certificate forms](#forms).
+6. [Summary](#summary).
 
 ---
 
-## <a id="sec-0"></a> Overview:
+## <a id="overview"></a> Overview:
 
 Before talking about **SSL Certificates** we need to take a deep dive and review a few security concepts. I just had an exam in some of these concepts at my college, this is the third time for me taking this course 😢.
 
@@ -42,7 +42,7 @@ Before talking about **SSL Certificates** we need to take a deep dive and review
 
 ---
 
-## <a id="sec-1"></a> Symmetric vs Asymmetric Key algorithms
+## <a id="symmetric-vs-asymmetric"></a> Symmetric vs Asymmetric Key algorithms
 
 In simple words, **Encryption** is the process of hiding a readable text (`plain-text`) by transforming it into unreadable text (`cipher-text`). and **Decryption** is the reverse operation.
 
@@ -50,15 +50,15 @@ In simple words, **Encryption** is the process of hiding a readable text (`plain
 
 Most cipher algorithms use one or more **key**s in the process of encryption / decryption and they are classified into two classes:
 
-### <a id="sec-1-1"></a> 1) `Symmetric-key` algorithms
+### <a id="symmetric-key"></a> 1) `Symmetric-key` algorithms
 
 Here we use related, often identical keys to encrypt and decrypt the message.
 
-Always the sender and the recipient have identical copies of the key. they both must keep it secret and exchange it in a secured way - offline -.
+Both the sender and the recipient have identical copies of the key. they both must keep it secret and exchange it in a secured way - offline -.
 
 An example of symmetric-key cipher algorithms is the `AES` algorithm.
 
-![symmetric](/articles-data/2021-07-02_seriously_why_we_are_using_ssl_certificates/images/symmetric.png)
+![symmetric](/articles-data/2021-07-02-diving_deeper_into_ssl_certificates/images/symmetric.png)
 
 #### Example:
 
@@ -105,7 +105,7 @@ cat plain-text.txt
 
 the main problem with these algorithms is how to securely share the key with both ends. **Asymmetric-key algorithms** were introduced to solve this problem.
 
-### <a id="sec-1-2"></a> 2- `Asymmetric-key` algorithms
+### <a id="asymmetric-key"></a> 2- `Asymmetric-key` algorithms
 
 Here we use mathematically related keys:
         
@@ -122,7 +122,7 @@ There are several mathematical algorithms used to produce the public and private
 - Rivest-Shamir-Adelman `RSA`
 - Digital Signature Standard `DSS`
 
-![asymmetric](/articles-data/2021-07-02_seriously_why_we_are_using_ssl_certificates/images/asymmetric.png)
+![asymmetric](/articles-data/2021-07-02-diving_deeper_into_ssl_certificates/images/asymmetric.png)
 
 #### Example:
 
@@ -203,7 +203,7 @@ The problem we have tried to solve so far is sending a private message to a spec
 
 ---
 
-## <a id="sec-2"></a> Digital Signature
+## <a id="digital-signature"></a> Digital Signature
 
 Now we need to discuss another problem **"the reception needs to make sure the message has been sent by the sender himself (not someone else claims to be the sender)"**.
 
@@ -215,7 +215,7 @@ Now we need to discuss another problem **"the reception needs to make sure the m
 
 This diagram will help us to understand the flow of digitally signing a document:
 
-![digital-signature](/articles-data/2021-07-02_seriously_why_we_are_using_ssl_certificates/images/digital-signature.png)
+![digital-signature](/articles-data/2021-07-02-diving_deeper_into_ssl_certificates/images/digital-signature.png)
 
 Note that:
 
@@ -291,7 +291,7 @@ Okay, after understanding how digital signature works, I think it's easy now to 
 
 The upcoming sections might be difficult but I'll try to simplify them as much as I can, you better get a cup of coffee and come back 🏃.
 
-## <a id="sec-3"></a> Digital Certificates, Certificate Authorities `CA`, and Public Key Infrastructure `PKI`
+## <a id="digital-certificates"></a> Digital Certificates, Certificate Authorities `CA`, and Public Key Infrastructure `PKI`
 
 
 In the real world, a **certificate** can be considered as an identity card issued to the person such as a driving license or passport to prove their identity.
@@ -308,7 +308,7 @@ Anyone can generate and sign a new **digital certificate**. However, that **digi
 
 In order for this framework to work, all operating systems and most web browsers ship with a set of trusted `CA`s. Here you can see the list of trusted certificate authorities in the Mozilla Firefox browser. Firefox will not trust any **digital certificate** except the ones that have been signed directly or indirectly by this list.
 
-![mozila](/articles-data/2021-07-02_seriously_why_we_are_using_ssl_certificates/images/mozila.png)
+![mozila](/articles-data/2021-07-02-diving_deeper_into_ssl_certificates/images/mozila.png)
 
 we can obtain a **digital certificate** by:
 
@@ -319,7 +319,7 @@ Notice that, when we say the trusted `CA` will sign our **digital certificate**,
 
 > An operating system or web browser may alert the user when loading software or a website whose **digital certificate** can't be verified from a trusted `CA`.
 > 
-> ![not-secure](/articles-data/2021-07-02_seriously_why_we_are_using_ssl_certificates/images/not-secure.png)
+> ![not-secure](/articles-data/2021-07-02-diving_deeper_into_ssl_certificates/images/not-secure.png)
 
 Depending on the certificate type, it can be used as a credential for websites, client authentication, code signing, document signing, or more.
 
@@ -330,7 +330,7 @@ Anyone having a valid digital certificate can:
 
 ---
 
-## <a id="sec-4"></a> Chain of Trust
+## <a id="chain-of-trust"></a> Chain of Trust
 
 Me, You, Hussain, and Omar are traveling in the desert. unfortunately, we only have one bottle of water. ❬You are trusting me❭ and ❬Hussain is trusting Omar❭. Omar told us he will keep the bottle with him:
 
@@ -347,7 +347,7 @@ We can say that A chain of trust is a list of certificates, usually starting wit
 
 you may see this certificate hierarchy in the browser before:
 
-![certificate-hierarchy](/articles-data/2021-07-02_seriously_why_we_are_using_ssl_certificates/images/certificate-hierarchy.png)
+![certificate-hierarchy](/articles-data/2021-07-02-diving_deeper_into_ssl_certificates/images/certificate-hierarchy.png)
 
 1. the browser has its own list of trusted `CA`s.
 2. the server responds to the browser with:
@@ -364,7 +364,7 @@ One of these security practices is minimizing the potential exposure of a root c
 
 ---
 
-## <a id="sec-5"></a> HTTPS, SSL, TLS, and SSL Certificates
+## <a id="https"></a> HTTPS, SSL, TLS, and SSL Certificates
 
 HTTPS is a combination of HTTP (HyperText Transfer Protocol) + TLS (Transport Layer Security).
 
@@ -373,13 +373,13 @@ HTTPS is a combination of HTTP (HyperText Transfer Protocol) + TLS (Transport La
 
 You can think of TLS as a secure layer under HTTP. so it creates a secure connection before exchanging any information.
 
-#### <a id="sec-5-1"></a> SSL vs TLS
+#### <a id="ssl-vs-tls"></a> SSL vs TLS
 
 The first released version of the SSL protocol is SSL 2.0 in 1995, then SSL 3.0, then both have been deprecated. after that TLS 1.0 - a more secure protocol - has been released, and now the most recent version is TLS 1.3 which released in 2018.
 
 Until now, The industry tends to stick with SSL term than TLS. also we still use the term **SSL certificates** and not **TLS certificates**.
 
-#### <a id="sec-5-2"></a> SSL/TLS certificates
+#### <a id="ssl"></a> SSL/TLS certificates
 
 Usually, SSL/TLS certificates are issued to web servers to verify their identities.
 
@@ -395,7 +395,7 @@ SSL/TLS certificates contain:
 - The digital signature by the `CA`.
 - ...
 
-#### <a id="sec-5-3"></a> The short story
+#### <a id="story"></a> The short story
 
 \>\>\> A browser wants to establish a connection with `https://github.com`
 
@@ -409,7 +409,7 @@ SSL/TLS certificates contain:
 
 > of course, there are more details, and what actually happening could be a little different.
 
-#### <a id="sec-5-4"></a> TLS/SSL certificate forms
+#### <a id="forms"></a> TLS/SSL certificate forms
 
 SSL certificate has several forms - you might notice a different prices for different forms while purchasing a certificate -:
 
@@ -429,7 +429,7 @@ SSL certificate has several forms - you might notice a different prices for diff
     - very expensive.
     - can take a few days or few weeks to be issued.
 
-## <a id="sec-6"></a> Summary
+## <a id="summary"></a> Summary
 
 Remember, the world of web security is rapidly growing every day. this post wasn't written by a web security professional guy, I was searching about most of its concepts while writing it. so this is not a reference or something like that, you can think of it as `كلمتين على قهوة بلدي`.
 

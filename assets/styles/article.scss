@@ -133,24 +133,25 @@
     margin: 0.9em 0;
     border: 1px solid $borderColor;
     border-left: 5px solid $primary;
-    background-image: url('~assets/images/bg.webp');
+    background-color: #E5E9F0;
     box-shadow: inset 0rem 0rem 10rem 5rem rgba(255,255,255,0.8);
 
     body.dark-mode & {
       border: 1px solid $borderColorDark;
       border-left: 5px solid $primaryDark;
-      background-image: url('~assets/images/bg-dark.webp');
+      background-color: #3B4252;
       box-shadow: inset 0rem 0rem 10rem 2rem rgba(0,0,0,0.2);
     }
   }
 
   img {
     max-width: 100%;
-    background-image: url('~assets/images/bg.webp');
+    background-color: #E5E9F0;
     border: 1px solid $borderColor;
 
     body.dark-mode & {
       border: 1px solid $borderColorDark;
+      background-color: #D8DEE9;
     }
   }
 }

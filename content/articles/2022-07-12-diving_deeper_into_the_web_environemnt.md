@@ -1,62 +1,59 @@
 ---
-title: Things I Missed During My CS Education (1)
-description: here you can find all diagrams / code examples that have been mentioned in the "Things I Missed During My CS Education (1)" video. this video contains some basic concepts that can help to have a deep understanding in the web environment like process / thread / CPU scheduler / inter-process communication / BSD sockets API <1983> / socket communication domains / the web history / CGI / FastCGI / WSGI
+title: Diving Deeper Into The Web Environment
+description: here you can find all diagrams / code examples that have been mentioned in the "Diving Deeper Into The Web Environment" video. this video contains some basic concepts that can help to have a deep understanding in the web environment starting from waht is process / thread / CPU scheduler / inter-process communication / BSD sockets API <1983> / socket communication domains / the web history / CGI / FastCGI / WSGI
 ---
 
 I was having some tasks related to deploying different web-applications on linux os like python(django/flask), php(laravel), java(spring) and dotnetcore. I was blindly following some tutorials to get the things up and running. after reviewing some basic concepts I thoghut it will be good to share this video. I will try to discuss some concepts that will lead to a deeper unnderstanding of the web environment.
 
-- Youtube Link (Arabic): <a href="https://www.youtube.com/watch?v=N41nty-jiec" target="_blank">Things I Missed During My CS Education (1) [Arabic]</a>
+Youtube Link <a href="https://www.youtube.com/watch?v=N41nty-jiec" target="_blank">Diving Deeper Into The Web Environment</a>
 
-- Youtube Link (English): *comming soon*
-
-
-Now, I'm preparing this content while listening to this calm and peaceful <a href="https://soundcloud.com/mokhbton/tyrifr9tae6z" target="_blank">voice</a> ... happy reading 😌
+Now, I'm preparing this content while listening to this calm and peaceful <a href="https://soundcloud.com/mokhbton/tyrifr9tae6z" target="_blank">voice</a> ... happy reading 😊
 
 ---
 
-1. [Diagrams](#sec-0).
-2. [Code Examples](#sec-1).
+1. [Diagrams](#diagrams).
+2. [Code Examples](#code-examples).
 
-## <a id="sec-0"></a> Diagrams:
+## <a id="diagrams"></a> Diagrams:
 
 #### Agenda
-![agenda](/articles-data/2022-07-12-things_i_missed_during_my_cs_education_1/agenda.webp)
+![agenda](/articles-data/2022-07-12-diving_deeper_into_the_web_environemnt/agenda.webp)
 
 #### Processes / Threads / CPU scheduler
-![cpu-scheduler](/articles-data/2022-07-12-things_i_missed_during_my_cs_education_1/cpu-scheduler.webp)
+![cpu-scheduler](/articles-data/2022-07-12-diving_deeper_into_the_web_environemnt/cpu-scheduler.webp)
 
 #### Terminal Device
-![terminal-device](/articles-data/2022-07-12-things_i_missed_during_my_cs_education_1/terminal-device.webp)
+![terminal-device](/articles-data/2022-07-12-diving_deeper_into_the_web_environemnt/terminal-device.webp)
 
 #### Terminal Emulator
-![terminal-emulator](/articles-data/2022-07-12-things_i_missed_during_my_cs_education_1/terminal-emulator.webp)
+![terminal-emulator](/articles-data/2022-07-12-diving_deeper_into_the_web_environemnt/terminal-emulator.webp)
 
 #### Standard Streams [stdin, stdout, stderr] / Stream Redirection
-![standard-redirection](/articles-data/2022-07-12-things_i_missed_during_my_cs_education_1/text-redirection.webp)
+![standard-redirection](/articles-data/2022-07-12-diving_deeper_into_the_web_environemnt/text-redirection.webp)
 
 #### Pipes
-![unnamed-pipes](/articles-data/2022-07-12-things_i_missed_during_my_cs_education_1/unnamed-pipes.webp)
+![unnamed-pipes](/articles-data/2022-07-12-diving_deeper_into_the_web_environemnt/unnamed-pipes.webp)
 
 #### Socket Communication Domains
-![socket-communication-domains](/articles-data/2022-07-12-things_i_missed_during_my_cs_education_1/socket-communication-domains.webp)
+![socket-communication-domains](/articles-data/2022-07-12-diving_deeper_into_the_web_environemnt/socket-communication-domains.webp)
 
 #### Sockets API
-![socket-domains](/articles-data/2022-07-12-things_i_missed_during_my_cs_education_1/socket-domains.webp)
+![socket-domains](/articles-data/2022-07-12-diving_deeper_into_the_web_environemnt/socket-domains.webp)
 
 #### Static Pages
-![static-pages](/articles-data/2022-07-12-things_i_missed_during_my_cs_education_1/static-pages.webp)
+![static-pages](/articles-data/2022-07-12-diving_deeper_into_the_web_environemnt/static-pages.webp)
 
 #### Common Gateway Interface
-![dynamic-pages](/articles-data/2022-07-12-things_i_missed_during_my_cs_education_1/dynamic-pages.webp)
+![dynamic-pages](/articles-data/2022-07-12-diving_deeper_into_the_web_environemnt/dynamic-pages.webp)
 
 #### Nginx / WSGI Server / WSGI Application / Python
-![wsgi](/articles-data/2022-07-12-things_i_missed_during_my_cs_education_1/wsgi.webp)
+![wsgi](/articles-data/2022-07-12-diving_deeper_into_the_web_environemnt/wsgi.webp)
 
 #### Nginx / PHP-FPM / PHP
-![php](/articles-data/2022-07-12-things_i_missed_during_my_cs_education_1/php.webp)
+![php](/articles-data/2022-07-12-diving_deeper_into_the_web_environemnt/php.webp)
 
 
-## <a id="sec-1"></a> Code Examples:
+## <a id="code-examples"></a> Code Examples:
 
 #### Files
 

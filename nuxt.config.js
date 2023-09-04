@@ -21,7 +21,7 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '~/assets/styles/main',
-    { src: '~/node_modules/highlight.js/styles/hopscotch.css', lang: 'css' }
+    { src: '~/node_modules/highlight.js/styles/base16/hopscotch.css', lang: 'css' }
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -67,6 +67,9 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    ranspile: [
+      'defu'
+    ]
   }
 }
 

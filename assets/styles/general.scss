@@ -1,19 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
 body {
-  color: #666666;
+  color: #4C566A;
   font-size: 16px;
   font-family: 'Roboto', sans-serif;
   line-height: 1.9;
   overflow-x: hidden;
-  background-color: #FFFFFF;
+  background-color: #E5E9F0;
   background-attachment: fixed;
-  background-image: url('~assets/images/bg.webp');
   
   &.dark-mode {
-    color: #999999;
-    background-color: #191c1f;
-    background-image: url('~assets/images/bg-dark.webp');
+    color: rgb(216, 222, 233);
+    background-color: #2E3440;
   }
 
   @media(max-width:767px) {
@@ -86,7 +84,7 @@ section {
   border: 1px solid $borderColor;
 
   body.dark-mode & {
-    background-color: rgba(25, 28, 31, 0.6);
+    background-color: #3B4252;
     border: 1px solid $borderColorDark;
   }
 
@@ -103,7 +101,7 @@ section {
   margin: 0;
   height: 2px;
   overflow: hidden;
-  background-color: #F7F7F7;
+  background-color: #E5E9F0;
 
   &::before {
     content: "";
@@ -118,7 +116,7 @@ section {
   }
 
   body.dark-mode & {
-    background-color: #333333;
+    background-color: #434C5E;
   }
 
   &.side-label::before {

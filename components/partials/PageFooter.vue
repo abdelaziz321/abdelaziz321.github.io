@@ -14,7 +14,7 @@
 }
 
 body.dark-mode .page-footer {
-  background-color: #111111;
+  background-color: #1D232F;
   border-top: 1px solid #222222;
 }
 </style>
