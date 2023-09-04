@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div>
+    <h2>Top Seller</h2>
+    <p id="top-seller"></p>
+  </div>
+
+  <script>
+    function fetchTopSeller() {
+      const xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState != 4) return;
+
+        // --- success
+        if (this.status == 200) {
+          const response = JSON.parse(xhttp.responseText);
+          document.getElementById('top-seller').innerHTML = response.top_seller;
+
+          // here we will fetch the top seller again after 3 sec
+          setTimeout(function () { vue.fetchTopSeller(); }, 3000);
+        }
+        // --- something went wrong
+        else {
+          window.alert('error');
+        }
+      }
+
+      const query = this.topSeller ? `?top_seller=${this.topSeller}` : '';
+      xhttp.open('GET', `http://127.0.0.1:8000/server.php${query}`, true);
+      xhttp.send();
+    }
+
+    fetchTopSeller();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div>
+    <h2>Top Seller</h2>
+    <p id="top-seller"></p>
+  </div>
+
+  <script>
+    function fetchTopSeller() {
+      const eventSource = new EventSource('http://127.0.0.1:8000/server.php');
+      eventSource.addEventListener("newTopSeller", function (event) {
+        const response = JSON.parse(event.data);
+        document.getElementById('top-seller').innerHTML = response.top_seller;
+      });
+    }
+
+    fetchTopSeller();
+  </script>
+</body>
+
+</html>
