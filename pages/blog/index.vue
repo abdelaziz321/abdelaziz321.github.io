@@ -11,7 +11,7 @@
       </p>
     </section>
 
-    <support />
+    <!-- <support /> -->
   </div>
 </template>
 

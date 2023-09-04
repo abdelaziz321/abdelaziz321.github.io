@@ -6,7 +6,7 @@
       <nuxt-content :document="article" />
     </section>
 
-    <support />
+    <!-- <support /> -->
 
     <comments />
   </div>

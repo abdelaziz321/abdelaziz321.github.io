@@ -50,7 +50,7 @@ In simple words, **Encryption** is the process of hiding a readable text (`plain
 
 Most cipher algorithms use one or more **key**s in the process of encryption / decryption and they are classified into two classes:
 
-### <a id="symmetric-key"></a> 1) `Symmetric-key` algorithms
+### <a id="symmetric-key"></a> 1) `Symmetric-key` Algorithms
 
 Here we use related, often identical keys to encrypt and decrypt the message.
 
@@ -105,7 +105,7 @@ cat plain-text.txt
 
 the main problem with these algorithms is how to securely share the key with both ends. **Asymmetric-key algorithms** were introduced to solve this problem.
 
-### <a id="asymmetric-key"></a> 2- `Asymmetric-key` algorithms
+### <a id="asymmetric-key"></a> 2- `Asymmetric-key` Algorithms
 
 Here we use mathematically related keys:
         

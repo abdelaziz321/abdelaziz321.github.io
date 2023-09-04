@@ -45,7 +45,7 @@
   .nuxt-content-highlight {
     pre[class*="language-"] {
       margin-top: 0;
-      background-color: #1e2933;
+      background-color: #2e3440;
 
       body.dark-mode & {
         border-color: $borderColorDark;
@@ -58,7 +58,7 @@
 
     .filename {
       display: inline-block;
-      background-color: #1e2933;
+      background-color: #2e3440;
       padding: 0 1rem;
       color: #eee;
       border-radius: 0 1rem 0 0;
@@ -85,12 +85,12 @@
   h3 > code {
     color: #000000;
     border: 1px solid $borderColor;
-    background-color: #c5e9fa;
+    background-color: #D8DEE9;
 
     body.dark-mode & {
       color: #EEEEEE;
       border: 1px solid $borderColorDark;
-      background-color: #295077;
+      background-color: #2e3440;
     }
   }
 
