@@ -7,7 +7,7 @@
           <p>Assalamualaikum,</p>
           <p>My name is Abdelaziz Mahmoud.</p>
           <p>I live in a lovely <span style="color: #f44336">💓</span> blue <span style="color: #1570a9">🌊</span> city in Egypt. Alexandria.</p>
-          <p>I work as a software developer with over 3 years of experience. I build web apps, SPAs, REST APIs, and Electron desktop apps.</p>
+          <p>I work as a software developer with around {{ yearsOfExperience() }} years of experience. I build web apps, SPAs, REST APIs, and Electron desktop apps.</p>
           <p>Also, I'm studying CS/Statistics At Faculty of Sciences, Alexandria University.</p>
           <!-- <a
             target="_blank"
@@ -72,7 +72,22 @@ export default {
         { icon: whatsapp,      link: 'https://wa.me/+201026642884' },
       ]
     };
+  },
+
+  methods: {
+    yearsOfExperience() {
+      const startDate = new Date('2019-09-01');
+      const currentDate = new Date();
+      let years = currentDate.getFullYear() - startDate.getFullYear();
+  
+      if (currentDate.getMonth() < startDate.getMonth()) {
+          years--;
+      }
+  
+      return years;
+    }
   }
+
 };
 </script>
 
