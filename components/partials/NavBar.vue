@@ -1,6 +1,7 @@
 <template>
   <div>
     <!-- NAVBAR -->
+    <div style="text-align: center; background-color: #000">🇵🇸 <a href="https://www.youtube.com/watch?v=MQ1TAOibLss" target="_blank" style="color: #FFF; font-size: 1.3rem;">Free Palestine</a></div>
     <div class="nav text-center pt-50 pb-50">
       <router-link class="nav-item" to="/">Home</router-link>
       <router-link class="nav-item" to="/blog">Blog</router-link>
