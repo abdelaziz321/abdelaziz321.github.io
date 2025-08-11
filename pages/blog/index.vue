@@ -2,7 +2,7 @@
   <div class="blog mb-50">
     <section :key="index" v-for="(article, index) in articles" class="mb-40 pb-20 pt-20 pt-30">
       <p class="text-right text-gray">{{ article.date }}</p>
-      <h1 class="mb-20">⛵ {{ article.title }}</h1>
+      <h1 class="mb-20">🤿 {{ article.title }}</h1>
       <hr class="divider-line side-label mb-20" />
       <p>{{ article.description }}</p>
 
@@ -53,7 +53,7 @@ export default {
         article.date = article.slug.substr(0, 10).replace(/_/g, '-');
       }
 
-      this.articles = articles.sort();
+      this.articles = articles.sort((a, b) => b.date.localeCompare(a.date));
     }
   }
 }

@@ -40,7 +40,7 @@ export default {
   mounted() {
     if (!process.client) return;
     const storedColorScheme = window.localStorage.getItem('color-scheme-preference');
-    this.isDarkMode = storedColorScheme == 'dark';
+    this.isDarkMode = storedColorScheme ? storedColorScheme === 'dark' : true;
   },
 
   methods: {

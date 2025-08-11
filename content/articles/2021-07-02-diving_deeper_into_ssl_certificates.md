@@ -1,5 +1,5 @@
 ---
-title: Diving Deeper Into SSL Certificates?
+title: Diving Deeper Into SSL Certificates
 description: We are going to discuss some securety concepts like encryption / decryption, symmetric / asymmetric key algorithms, digital signature, digital certificates, public key infrastructure, chain of trust, root certificates, intermediate certificates, HTTPS, SSL/TLS certificates and certificate authorities.
 ---
 

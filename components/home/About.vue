@@ -6,8 +6,8 @@
         <div class="pr-15 mb-25">
           <p>Assalamualaikum,</p>
           <p>My name is Abdelaziz Mahmoud.</p>
-          <p>I live in a lovely <span style="color: #f44336">💓</span> blue <span style="color: #1570a9">🌊</span> city in Egypt. Alexandria.</p>
-          <p>I work as a software developer with around {{ yearsOfExperience() }} years of experience. I build web apps, SPAs, REST APIs, and Electron desktop apps.</p>
+          <p>I live in a 💓 lovely 🌊 blue city in Egypt. Alexandria.</p>
+          <p>I work as a software developer with around {{ yearsOfExperience() }} years of experience. I’ve build a mix of 🌐 web apps, 🧩 REST APIs, and ☁️ cloud-native services, and I’m always learning more about the cloud.</p>
           <p>Also, I'm studying CS/Statistics At Faculty of Sciences, Alexandria University.</p>
           <!-- <a
             target="_blank"

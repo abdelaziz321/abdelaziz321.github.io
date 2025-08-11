@@ -115,8 +115,12 @@
     li {
       padding-left: 1em;
 
-      ul > li {
+      ul {
+        margin-bottom: 0.2rem;
+
+        li {
         list-style: '𐏐';
+        }
       }
     }
   }

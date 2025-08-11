@@ -2,7 +2,7 @@
   <div>
     <section class="article mb-40 pb-20 pt-20 paper">
       <p class="text-right mb-35">{{ article.date }}</p>
-      <h1 class="mb-30">⛵ {{ article.title }}</h1>
+      <h1 class="mb-30">🤿 {{ article.title }}</h1>
       <nuxt-content :document="article" />
     </section>
 
