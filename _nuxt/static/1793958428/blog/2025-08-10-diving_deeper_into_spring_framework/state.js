@@ -1,0 +1,1 @@
+window.__NUXT__=(function(a){return {staticAssetsBase:"\u002F_nuxt\u002Fstatic\u002F1793958428",layout:"default",error:a,serverRendered:true,routePath:"\u002Fblog\u002F2025-08-10-diving_deeper_into_spring_framework",config:{_app:{basePath:"\u002F",assetsPath:"\u002F_nuxt\u002F",cdnURL:a},content:{dbHash:"e8f8d0d3"}}}}(null));

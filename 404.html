@@ -1,11 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8" />
-  <title>Abdelaziz Mahmoud | Software Engineer</title>
-  <script>sessionStorage.redirect = location.pathname + location.search;</script>
-  <meta http-equiv="refresh" content="0;URL='/blog'" />
-</head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#2e3440">
+  <title>Page not found | Abdelaziz Mahmoud</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font: 16px/1.6 system-ui, sans-serif;
+      color: #e5e9f0;
+      background: #2e3440;
+    }
 
+    body {
+      display: grid;
+      min-height: 100vh;
+      margin: 0;
+      place-items: center;
+    }
+
+    main {
+      max-width: 34rem;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    h1 { font-size: clamp(2rem, 8vw, 4rem); }
+    a { color: #88c0d0; }
+    .actions { display: flex; justify-content: center; gap: 1.5rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <p>404 · Page not found</p>
+    <h1>This page wandered off.</h1>
+    <p>The address may be outdated, or the page may have moved.</p>
+    <nav class="actions" aria-label="Helpful links">
+      <a href="/">Go home</a>
+      <a href="/blog">Browse articles</a>
+    </nav>
+  </main>
+</body>
 </html>
