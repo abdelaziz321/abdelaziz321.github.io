@@ -1,21 +1,101 @@
+const fs = require('fs');
+const path = require('path');
+
+const articleDirectory = path.resolve(__dirname, 'content/articles');
+const articleRoutes = fs.readdirSync(articleDirectory)
+  .filter(file => file.endsWith('.md'))
+  .map(file => `/blog/${file.slice(0, -3)}`);
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Abdelaziz Mahmoud | Software Engineer',
+    title: 'Abdelaziz Mahmoud (@abdelaziz321) | Software Engineer',
+    titleTemplate: '%s',
     htmlAttrs: {
       lang: 'en'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Abdelaziz Mahmoud (@abdelaziz321) is a software engineer from Alexandria, Egypt. Explore his work, technical articles, and software engineering notes.'
+      },
+      { name: 'author', content: 'Abdelaziz Mahmoud' },
+      { name: 'robots', content: 'index, follow, max-image-preview:large' },
+      { hid: 'og:site_name', property: 'og:site_name', content: 'Abdelaziz Mahmoud' },
+      { hid: 'og:type', property: 'og:type', content: 'website' },
+      {
+        hid: 'og:title',
+        property: 'og:title',
+        content: 'Abdelaziz Mahmoud (@abdelaziz321) | Software Engineer'
+      },
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content: 'Software engineer from Alexandria, Egypt. Explore technical articles and notes by Abdelaziz Mahmoud.'
+      },
+      {
+        hid: 'og:url',
+        property: 'og:url',
+        content: 'https://abdelaziz321.github.io/'
+      },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content: 'https://github.com/abdelaziz321.png'
+      },
+      { hid: 'twitter:card', name: 'twitter:card', content: 'summary' },
+      {
+        hid: 'twitter:title',
+        name: 'twitter:title',
+        content: 'Abdelaziz Mahmoud (@abdelaziz321) | Software Engineer'
+      },
+      {
+        hid: 'twitter:description',
+        name: 'twitter:description',
+        content: 'Software engineer from Alexandria, Egypt. Explore technical articles and notes by Abdelaziz Mahmoud.'
+      },
+      {
+        hid: 'twitter:image',
+        name: 'twitter:image',
+        content: 'https://github.com/abdelaziz321.png'
+      }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    ],
+    script: [
+      {
+        hid: 'person-jsonld',
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'Person',
+          name: 'Abdelaziz Mahmoud',
+          alternateName: 'abdelaziz321',
+          url: 'https://abdelaziz321.github.io/',
+          image: 'https://github.com/abdelaziz321.png',
+          jobTitle: 'Software Engineer',
+          homeLocation: {
+            '@type': 'Place',
+            name: 'Alexandria, Egypt'
+          },
+          sameAs: [
+            'https://github.com/abdelaziz321',
+            'https://www.linkedin.com/in/abdelaziz-mahmoud-2b344b138/',
+            'https://stackoverflow.com/users/6739241/abdelaziz-mahmoud'
+          ]
+        })
+      }
+    ],
+    __dangerouslyDisableSanitizersByTagID: {
+      'person-jsonld': ['innerHTML']
+    }
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -32,26 +112,16 @@ export default {
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [
-  ],
-
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    // https://go.nuxtjs.dev/content
     '@nuxt/content',
-    // https://github.com/nuxt-community/svg-module
-    "@nuxtjs/svg",
-    // https://sitemap.nuxtjs.org/
+    '@nuxtjs/svg',
     [
       '@nuxtjs/sitemap',
       {
         hostname: 'https://abdelaziz321.github.io',
-        routes: [
-          '/blog/2020-11-30-developing-real-time-applications-part-1',
-          '/blog/2021-07-02_seriously_why_we_are_using_ssl_certificates',
-          '/blog/2022-07-12-things_i_missed_during_my_cs_education_1',
-        ]
+        gzip: true,
+        routes: articleRoutes
       }
     ]
   ],
@@ -65,14 +135,16 @@ export default {
     }
   },
 
-  // Build Configuration: https://go.nuxtjs.dev/config-build
+  generate: {
+    routes: articleRoutes
+  },
+
   build: {
-    ranspile: [
+    transpile: [
       'defu'
     ]
   }
 }
-
 
 
 

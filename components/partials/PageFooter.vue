@@ -1,10 +1,19 @@
 <template>
   <div class="page-footer text-center pt-5 pb-5">
-    developed with ♥ by Abdelaziz Mahmoud ©
-    {{ (new Date).getFullYear() }}
+    <p>Made with ♥ by <a href="https://github.com/abdelaziz321">@abdelaziz321</a> · © {{ currentYear }}</p>
   </div>
 </template>
 
+<script>
+export default {
+  name: 'page-footer',
+  data() {
+    return {
+      currentYear: new Date().getFullYear()
+    };
+  }
+};
+</script>
 
 <style lang="scss">
 .page-footer {

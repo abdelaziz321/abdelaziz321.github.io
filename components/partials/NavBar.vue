@@ -1,25 +1,30 @@
 <template>
   <div>
-    <!-- NAVBAR -->
-    <div style="text-align: center; background-color: #000">
-      <svg width="25px" viewBox="0 0 6 3">
+    <div class="solidarity-banner">
+      <svg width="25" viewBox="0 0 6 3" aria-hidden="true" focusable="false">
         <rect fill="#009639" width="5" height="3"/>
         <rect fill="#FFF" width="5" height="2"/>
         <rect width="5" height="1"/>
         <path fill="#ED2E38" d="M0,0l2,1.5L0,3Z"/>
       </svg>
-      <a href="https://www.youtube.com/watch?v=MQ1TAOibLss" target="_blank" style="color: #FFF; text-decoration: none; font-size: 1.3rem;">Free Palestine</a></div>
-    <div class="nav text-center pt-50 pb-50">
-      <router-link class="nav-item" to="/">Home</router-link>
-      <router-link class="nav-item" to="/blog">Blog</router-link>
+      <span>Free Palestine</span>
+    </div>
+    <nav class="nav text-center pt-50 pb-50" aria-label="Primary navigation">
+      <nuxt-link class="nav-item" to="/" exact>Home</nuxt-link>
+      <nuxt-link class="nav-item" to="/blog">Blog</nuxt-link>
 
       <label class="nav-item nav-switch mb-0">
-        <input type="checkbox" v-model="isDarkMode" @change="updateColorScheme(isDarkMode ? 'dark' : 'light')" />
-        <span class="slider">
-          <crescent-icon class="crescent-icon" />
+        <input
+          type="checkbox"
+          v-model="isDarkMode"
+          aria-label="Use dark color theme"
+          @change="updateColorScheme(isDarkMode ? 'dark' : 'light')"
+        />
+        <span class="slider" aria-hidden="true">
+          <crescent-icon class="crescent-icon" aria-hidden="true" focusable="false" />
         </span>
       </label>
-    </div>
+    </nav>
   </div>
 </template>
 
@@ -48,7 +53,10 @@ export default {
   mounted() {
     if (!process.client) return;
     const storedColorScheme = window.localStorage.getItem('color-scheme-preference');
-    this.isDarkMode = storedColorScheme ? storedColorScheme === 'dark' : true;
+    const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    this.isDarkMode = storedColorScheme
+      ? storedColorScheme === 'dark'
+      : prefersDarkMode;
   },
 
   methods: {
@@ -71,6 +79,21 @@ export default {
   }
 }
 
+.solidarity-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.35rem;
+  background-color: #000000;
+
+  span {
+    color: #FFFFFF;
+    font-size: 1.3rem;
+    text-decoration: none;
+  }
+}
+
 .nav-item {
   margin: 0 1em;
   color: #333333;
@@ -89,9 +112,18 @@ export default {
   vertical-align: middle;
 
   input {
-    opacity: 0;
-    width: 0;
-    height: 0;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+
+    &:focus-visible + .slider {
+      outline: 2px solid currentColor;
+      outline-offset: 3px;
+    }
 
     &:checked + .slider .crescent-icon {
       transform: translateX(18px);

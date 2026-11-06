@@ -15,21 +15,33 @@
 
 <script>
 import Comments from '@/components/blog/Comments';
-import Support from '@/components/partials/Support.vue';
 
 export default {
   name: 'blog-index',
-  components: { Comments, Support },
+  components: { Comments },
 
   head() {
+    const title = `${this.article.title} | Abdelaziz Mahmoud (@abdelaziz321)`;
+    const description = this.article.description;
+    const canonical = `https://abdelaziz321.github.io/blog/${this.article.slug}`;
+
     return {
-      title: `Abdelaziz Mahmoud: ${this.article.title}`,
+      title,
       meta: [
         {
-          hid: this.article.title,
-          name: this.article.title,
-          content: this.article.description
-        }
+          hid: 'description',
+          name: 'description',
+          content: description
+        },
+        { hid: 'og:type', property: 'og:type', content: 'article' },
+        { hid: 'og:title', property: 'og:title', content: title },
+        { hid: 'og:description', property: 'og:description', content: description },
+        { hid: 'og:url', property: 'og:url', content: canonical },
+        { hid: 'twitter:title', name: 'twitter:title', content: title },
+        { hid: 'twitter:description', name: 'twitter:description', content: description }
+      ],
+      link: [
+        { hid: 'canonical', rel: 'canonical', href: canonical }
       ]
     };
   },
@@ -37,8 +49,8 @@ export default {
 
   async asyncData ({ $content, route }) {
     const article = await $content(`articles/${route.params.article}`).fetch();
-    article.date = article.slug.substr(0, 10).replace(/_/g, '-');
-    return { article: article };
+    article.date = article.slug.slice(0, 10).replace(/_/g, '-');
+    return { article };
   }
 }
 </script>

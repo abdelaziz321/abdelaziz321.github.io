@@ -10,51 +10,46 @@
         <router-link :to="`/blog/${article.slug}`">>> Start Reading</router-link>
       </p>
     </section>
-
-    <!-- <support /> -->
   </div>
 </template>
 
 
 <script>
-import Support from '~/components/partials/Support.vue';
-
 export default {
   name: 'blog-index',
-  components: { Support },
 
   head() {
+    const title = 'Abdelaziz Mahmoud | Blog';
+    const description = 'Technical articles and notes by Abdelaziz Mahmoud (@abdelaziz321) on software engineering, web development, and technology.';
+
     return {
-      title: 'Abdelaziz Mahmoud | Blog'
+      title,
+      meta: [
+        { hid: 'description', name: 'description', content: description },
+        { hid: 'og:title', property: 'og:title', content: title },
+        { hid: 'og:description', property: 'og:description', content: description },
+        { hid: 'og:url', property: 'og:url', content: 'https://abdelaziz321.github.io/blog' },
+        { hid: 'twitter:title', name: 'twitter:title', content: title },
+        { hid: 'twitter:description', name: 'twitter:description', content: description }
+      ],
+      link: [
+        { hid: 'canonical', rel: 'canonical', href: 'https://abdelaziz321.github.io/blog' }
+      ]
     };
   },
 
+  async asyncData({ $content }) {
+    const articles = await $content('articles')
+      .without(['body', 'toc'])
+      .sortBy('slug', 'desc')
+      .fetch();
 
-  data: function () {
     return {
-      articles: []
+      articles: articles.map(article => ({
+        ...article,
+        date: article.slug.slice(0, 10).replace(/_/g, '-')
+      }))
     };
-  },
-
-
-  created() {
-    this.fetchArticles();
-  },
-
-
-  methods: {
-    async fetchArticles() {
-      const articles = await this.$content('articles')
-        .without(['body', 'toc'])
-        .sortBy('title', 'desc')
-        .fetch();
-
-      for (const article of articles) {
-        article.date = article.slug.substr(0, 10).replace(/_/g, '-');
-      }
-
-      this.articles = articles.sort((a, b) => b.date.localeCompare(a.date));
-    }
   }
 }
 </script>

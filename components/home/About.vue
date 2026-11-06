@@ -20,7 +20,13 @@
       <!-- IMAGE SIDE -->
       <div class="col-md-4">
         <div class="text-center">
-          <img width="100%" style="max-width: 240px" src="@/assets/images/me.webp" />
+          <img
+            width="100%"
+            style="max-width: 240px"
+            src="@/assets/images/me.webp"
+            alt="Portrait of Abdelaziz Mahmoud, software engineer"
+            fetchpriority="high"
+          />
         </div>
       </div>
     </div>
@@ -34,8 +40,10 @@
         v-for="(contact, index) in contacts"
         target="_blank"
         :href="contact.link"
+        :aria-label="contact.label"
+        rel="noopener noreferrer"
       >
-        <component :is="contact.icon" />
+        <component :is="contact.icon" aria-hidden="true" focusable="false" />
       </a>
     </div>
   </section>
@@ -60,16 +68,12 @@ export default {
   data: function () {
     return {
       contacts: [
-        { icon: gmail,         link: 'mailto:abdelazizmahmoud321@gmail.com' },
-        { icon: github,        link: 'https://github.com/abdelaziz321' },
-        { icon: linkedin,      link: 'https://www.linkedin.com/in/abdelaziz-mahmoud-2b344b138/' },
-        { icon: stackoverflow, link: 'https://stackoverflow.com/users/6739241/abdelaziz-mahmoud' },
-        { icon: upwork,        link: 'https://upwork.com/freelancers/~014b83515ee721dcb4' },
-        // { icon: freelancer,    link: 'https://freelancer.ca/u/abdelaziz321' },
-        // { icon: themeforest,   link: 'https://themeforest.net/user/abdelaziz_sliem/portfolio' },
-        // { icon: facebook,      link: 'https://www.facebook.com/profile.php?id=100077407050340' },
-        // { icon: twitter,       link: 'https://twitter.com/abdelaziz3210' },
-        { icon: whatsapp,      link: 'https://wa.me/+201026642884' },
+        { icon: gmail, label: 'Email Abdelaziz', link: 'mailto:abdelazizmahmoud321@gmail.com' },
+        { icon: github, label: 'Abdelaziz on GitHub', link: 'https://github.com/abdelaziz321' },
+        { icon: linkedin, label: 'Abdelaziz on LinkedIn', link: 'https://www.linkedin.com/in/abdelaziz-mahmoud-2b344b138/' },
+        { icon: stackoverflow, label: 'Abdelaziz on Stack Overflow', link: 'https://stackoverflow.com/users/6739241/abdelaziz-mahmoud' },
+        { icon: upwork, label: 'Abdelaziz on Upwork', link: 'https://upwork.com/freelancers/~014b83515ee721dcb4' },
+        { icon: whatsapp, label: 'Message Abdelaziz on WhatsApp', link: 'https://wa.me/+201026642884' }
       ]
     };
   },
@@ -87,7 +91,6 @@ export default {
       return years;
     }
   }
-
 };
 </script>
 
@@ -114,6 +117,21 @@ export default {
         fill: #DDDDDD;
       }
     }
+  }
+
+  a:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
+  }
+}
+
+.username {
+  color: #4C566A;
+  font-size: 1.15rem;
+  margin-bottom: 1rem;
+
+  body.dark-mode & {
+    color: #B0B8C5;
   }
 }
 </style>

@@ -140,7 +140,11 @@ a {
 }
 
 .text-gray {
-  color: #AAAAAA;
+  color: #4C566A;
+
+  body.dark-mode & {
+    color: #B0B8C5;
+  }
 }
 
 @media(max-width:767px) {
